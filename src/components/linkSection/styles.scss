@@ -1,0 +1,30 @@
+.linkSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+}
+
+.call-to-action {
+  box-shadow: 0 5px 0 #c2503d;
+  background-color: #ff6b53;
+  padding: 10px 20px;
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 16px;
+  text-transform: uppercase;
+  color: #fff;
+  box-shadow: 0 5px 0 #c2503d;
+  border-radius: 5px;
+  font-weight: 700;
+
+    visibility: visible;
+    animation-name: zoomInUp;
+    -webkit-transition: color 0.3s;
+    transition: color 0.3s;
+    text-decoration: none;
+}
+
+.call-to-action:hover {
+  color: #fff;
+  text-decoration: none;
+}

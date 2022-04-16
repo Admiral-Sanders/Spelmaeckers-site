@@ -1,16 +1,26 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import ReactDOM from "react-dom";
+import "./index.scss";
+import reportWebVitals from "./reportWebVitals";
+import App from "./app";
+import i18n from "i18next";
+import { initReactI18next } from "react-i18next";
+import Translations from "./translations";
 
-const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
-);
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+
+i18n
+  .use(initReactI18next)
+  .init({
+    resources: Translations,
+    lng: "nl",
+    fallbackLng: "nl",
+    interpolation: {
+      escapeValue: false
+    }
+  });
+
+ReactDOM.render(
+  <App />,
+  document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function

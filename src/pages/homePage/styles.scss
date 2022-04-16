@@ -1,0 +1,24 @@
+@import "../../styles/colors.scss";
+
+.grayBackground {
+  background-color: var(--background-gray);
+}
+
+.backdrop {
+  position: fixed;
+  background-image: url("https://images8.alphacoders.com/448/448821.jpg");
+  background-size: cover;
+  z-index: 5;
+  width: 100vw;
+  height: 100vh;
+}
+
+.content {
+  position: absolute;
+  z-index: 10;
+  width: 100%;
+  border-top: 1px solid #E8E8E8;
+  background-color: #FFF;
+  top: 100vh;
+  overflow: hidden;
+}
