@@ -1,3 +1,8 @@
+import { DownCircleOutlined } from "@ant-design/icons";
+import { Affix } from "antd";
+import { Header } from "antd/lib/layout/layout";
+import AppHeader from "layout/components/header/header";
+import { Link } from "react-router-dom";
 import EventSection from "../../components/eventSection";
 import GallerySection from "../../components/gallerySection";
 import LinkSection from "../../components/linkSection";
@@ -13,20 +18,28 @@ interface Props {
 
 const HomePage: React.FC<Props> = () => {
   const images = [
-    "https://www.despelmaeckers.be/wp-content/uploads/2020/08/999-games-de-crew-999cre01-8665-0-500x357.jpg",
-    "https://www.despelmaeckers.be/wp-content/uploads/2020/09/775499-700x500.jpg",
-    "https://www.despelmaeckers.be/wp-content/uploads/2020/08/azul-630x450.jpg",
-    "https://www.despelmaeckers.be/wp-content/uploads/2020/08/smartphone-inc01-500x762-500x357.jpg"
+    "https://cf.geekdo-images.com/SoClIcwjDo_iZs0idVikDw__opengraph/img/Oi4Yub0J7r6VqnQv0jzeG8keTMk=/fit-in/1200x630/filters:strip_icc()/pic4848330.jpg",
+    "https://www.board-game.co.uk/wp-content/uploads/2020/06/Azul-Summer-Pavilion.jpg",
+    "https://cf.geekdo-images.com/Ndctxvd7kBXYubeYRKRqzw__opengraph/img/ICTqakLDPah8-kJwhMKhccTlt4o=/fit-in/1200x630/filters:strip_icc()/pic4258616.jpg",
+    "https://www.999games.nl/pub/media/catalog/product/D/e/DeCrew_L.png",
+    "https://media.s-bol.com/qxY1nDYAOG67/550x720.jpg"
   ];
 
   return (
     <div>
       <div className="backdrop">
-
+        <h1>De spelmaeckers</h1>
+        <a href="#practical">
+          <DownCircleOutlined className="scrollIcon"/>
+        </a>
       </div>
 
       <div className="content">
-        <div className="grayBackground">
+        <Affix offsetTop={0}>
+          <AppHeader />
+        </Affix>
+
+        <div className="grayBackground" id="practical">
           <PracticalSection></PracticalSection>
         </div>
 

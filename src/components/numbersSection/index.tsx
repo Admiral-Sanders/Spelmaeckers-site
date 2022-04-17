@@ -25,7 +25,7 @@ const NumbersSection: React.FC<Props> = () => {
   }
   return (
     <SectionWrapper title="numbersSection.title">
-      <Row gutter={200} justify="center">
+      <Row gutter={200} justify="center" className="numbersRow">
         { numbers.map(number => (renderNumberBlock(number)))}
       </Row>
     </SectionWrapper>
