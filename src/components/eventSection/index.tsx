@@ -16,7 +16,7 @@ const upComingEvents = [
 const EventSection: React.FC<Props> = () => {
   const renderEvent = (event: any) => {
     return (
-      <Col className="event">
+      <Col key={event.title} className="event">
         <Link to={{ pathname: event.url}} target="_blank">
         <img style={{ maxWidth: 200 }} src="https://despelmaeckers.be/images/event-logo.png"></img>
         <h1>{event.title}</h1>

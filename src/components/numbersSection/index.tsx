@@ -17,7 +17,7 @@ const numbers = [
 const NumbersSection: React.FC<Props> = () => {
   const renderNumberBlock = (item: { title: string; number: number }) => {
     return (
-      <Col sm={20} md={6} className="numberBlock">
+      <Col key={item.title} sm={20} md={6} className="numberBlock">
         <h1>{item.number}</h1>
         <p>{item.title}</p>
       </Col>

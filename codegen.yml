@@ -1,5 +1,5 @@
 overwrite: true
-schema: "http://localhost:3000/graphql"
+schema: "https://graphql.contentful.com/content/v1/spaces/6cgdkv8ktvf8?access_token=WEudIS80BUEAGOwckbmR9QaaCEiaMRD8QDvdoJxBeb4"
 documents: "./src/graphql/**/*.{ts,tsx}"
 generates:
   src/graphql/schema.tsx:

@@ -1,29 +1,22 @@
 import { FacebookOutlined } from "@ant-design/icons";
 import { Col } from "antd";
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import { Maybe, Member } from "graphql/schema";
 import { Link } from "react-router-dom";
 import "./styles.scss";
 
-export interface Member {
-  name: string;
-  description: string;
-  image: string;
-  facebookLink: string;
-}
-
 interface Props {
-  member: Member;
+  member: any; // Fix type
 }
 
 const MemberBlock: React.FC<Props> = ({ member }) => {
-  const { name, description, image, facebookLink } = member;
-
   return (
     <Col sm={20} md={6} className="memberBlock">
-      <img src={image} alt={`Profile picture of ${name}`}></img>
-      <h1 className="memberTitle">{ name }</h1>
-      <p>{description}</p>
+      <img src={member?.profilePicture?.url} alt={`Profile picture of ${name}`}></img>
+      <h1 className="memberTitle">{ member?.name }</h1>
+      <div className="description">{ documentToReactComponents(member?.description?.json) }</div>
 
-      <Link to={{ pathname: facebookLink }} target="_blank" className="fbLink">
+      <Link to={{ pathname: member?.facebookLink || "" }} target="_blank" className="fbLink">
         <FacebookOutlined />
       </Link>
     </Col>
