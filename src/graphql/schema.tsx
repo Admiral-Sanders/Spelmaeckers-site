@@ -279,6 +279,111 @@ export enum EntryOrder {
   SysPublishedVersionDesc = 'sys_publishedVersion_DESC'
 }
 
+/** One of the focus numbers on the homepage [See type definition](https://app.contentful.com/spaces/6cgdkv8ktvf8/content_types/focusnumber) */
+export type Focusnumber = Entry & {
+  __typename?: 'Focusnumber';
+  contentfulMetadata: ContentfulMetadata;
+  linkedFrom?: Maybe<FocusnumberLinkingCollections>;
+  number?: Maybe<Scalars['Int']>;
+  order?: Maybe<Scalars['Int']>;
+  sys: Sys;
+  title?: Maybe<Scalars['String']>;
+};
+
+
+/** One of the focus numbers on the homepage [See type definition](https://app.contentful.com/spaces/6cgdkv8ktvf8/content_types/focusnumber) */
+export type FocusnumberLinkedFromArgs = {
+  allowedLocales?: Maybe<Array<Maybe<Scalars['String']>>>;
+};
+
+
+/** One of the focus numbers on the homepage [See type definition](https://app.contentful.com/spaces/6cgdkv8ktvf8/content_types/focusnumber) */
+export type FocusnumberNumberArgs = {
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** One of the focus numbers on the homepage [See type definition](https://app.contentful.com/spaces/6cgdkv8ktvf8/content_types/focusnumber) */
+export type FocusnumberOrderArgs = {
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** One of the focus numbers on the homepage [See type definition](https://app.contentful.com/spaces/6cgdkv8ktvf8/content_types/focusnumber) */
+export type FocusnumberTitleArgs = {
+  locale?: Maybe<Scalars['String']>;
+};
+
+export type FocusnumberCollection = {
+  __typename?: 'FocusnumberCollection';
+  items: Array<Maybe<Focusnumber>>;
+  limit: Scalars['Int'];
+  skip: Scalars['Int'];
+  total: Scalars['Int'];
+};
+
+export type FocusnumberFilter = {
+  AND?: Maybe<Array<Maybe<FocusnumberFilter>>>;
+  OR?: Maybe<Array<Maybe<FocusnumberFilter>>>;
+  contentfulMetadata?: Maybe<ContentfulMetadataFilter>;
+  number?: Maybe<Scalars['Int']>;
+  number_exists?: Maybe<Scalars['Boolean']>;
+  number_gt?: Maybe<Scalars['Int']>;
+  number_gte?: Maybe<Scalars['Int']>;
+  number_in?: Maybe<Array<Maybe<Scalars['Int']>>>;
+  number_lt?: Maybe<Scalars['Int']>;
+  number_lte?: Maybe<Scalars['Int']>;
+  number_not?: Maybe<Scalars['Int']>;
+  number_not_in?: Maybe<Array<Maybe<Scalars['Int']>>>;
+  order?: Maybe<Scalars['Int']>;
+  order_exists?: Maybe<Scalars['Boolean']>;
+  order_gt?: Maybe<Scalars['Int']>;
+  order_gte?: Maybe<Scalars['Int']>;
+  order_in?: Maybe<Array<Maybe<Scalars['Int']>>>;
+  order_lt?: Maybe<Scalars['Int']>;
+  order_lte?: Maybe<Scalars['Int']>;
+  order_not?: Maybe<Scalars['Int']>;
+  order_not_in?: Maybe<Array<Maybe<Scalars['Int']>>>;
+  sys?: Maybe<SysFilter>;
+  title?: Maybe<Scalars['String']>;
+  title_contains?: Maybe<Scalars['String']>;
+  title_exists?: Maybe<Scalars['Boolean']>;
+  title_in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  title_not?: Maybe<Scalars['String']>;
+  title_not_contains?: Maybe<Scalars['String']>;
+  title_not_in?: Maybe<Array<Maybe<Scalars['String']>>>;
+};
+
+export type FocusnumberLinkingCollections = {
+  __typename?: 'FocusnumberLinkingCollections';
+  entryCollection?: Maybe<EntryCollection>;
+};
+
+
+export type FocusnumberLinkingCollectionsEntryCollectionArgs = {
+  limit?: Maybe<Scalars['Int']>;
+  locale?: Maybe<Scalars['String']>;
+  preview?: Maybe<Scalars['Boolean']>;
+  skip?: Maybe<Scalars['Int']>;
+};
+
+export enum FocusnumberOrder {
+  NumberAsc = 'number_ASC',
+  NumberDesc = 'number_DESC',
+  OrderAsc = 'order_ASC',
+  OrderDesc = 'order_DESC',
+  SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
+  SysFirstPublishedAtDesc = 'sys_firstPublishedAt_DESC',
+  SysIdAsc = 'sys_id_ASC',
+  SysIdDesc = 'sys_id_DESC',
+  SysPublishedAtAsc = 'sys_publishedAt_ASC',
+  SysPublishedAtDesc = 'sys_publishedAt_DESC',
+  SysPublishedVersionAsc = 'sys_publishedVersion_ASC',
+  SysPublishedVersionDesc = 'sys_publishedVersion_DESC',
+  TitleAsc = 'title_ASC',
+  TitleDesc = 'title_DESC'
+}
+
 export enum ImageFormat {
   Avif = 'AVIF',
   /** JPG image format. */
@@ -503,7 +608,7 @@ export enum MemberOrder {
   SysPublishedVersionDesc = 'sys_publishedVersion_DESC'
 }
 
-/** [See type definition](https://app.contentful.com/spaces/6cgdkv8ktvf8/content_types/practicalItem) */
+/** One of the main sections on the homepage [See type definition](https://app.contentful.com/spaces/6cgdkv8ktvf8/content_types/practicalItem) */
 export type PracticalItem = Entry & {
   __typename?: 'PracticalItem';
   contentfulMetadata: ContentfulMetadata;
@@ -516,31 +621,31 @@ export type PracticalItem = Entry & {
 };
 
 
-/** [See type definition](https://app.contentful.com/spaces/6cgdkv8ktvf8/content_types/practicalItem) */
+/** One of the main sections on the homepage [See type definition](https://app.contentful.com/spaces/6cgdkv8ktvf8/content_types/practicalItem) */
 export type PracticalItemDescriptionArgs = {
   locale?: Maybe<Scalars['String']>;
 };
 
 
-/** [See type definition](https://app.contentful.com/spaces/6cgdkv8ktvf8/content_types/practicalItem) */
+/** One of the main sections on the homepage [See type definition](https://app.contentful.com/spaces/6cgdkv8ktvf8/content_types/practicalItem) */
 export type PracticalItemIconArgs = {
   locale?: Maybe<Scalars['String']>;
 };
 
 
-/** [See type definition](https://app.contentful.com/spaces/6cgdkv8ktvf8/content_types/practicalItem) */
+/** One of the main sections on the homepage [See type definition](https://app.contentful.com/spaces/6cgdkv8ktvf8/content_types/practicalItem) */
 export type PracticalItemLinkedFromArgs = {
   allowedLocales?: Maybe<Array<Maybe<Scalars['String']>>>;
 };
 
 
-/** [See type definition](https://app.contentful.com/spaces/6cgdkv8ktvf8/content_types/practicalItem) */
+/** One of the main sections on the homepage [See type definition](https://app.contentful.com/spaces/6cgdkv8ktvf8/content_types/practicalItem) */
 export type PracticalItemOrderArgs = {
   locale?: Maybe<Scalars['String']>;
 };
 
 
-/** [See type definition](https://app.contentful.com/spaces/6cgdkv8ktvf8/content_types/practicalItem) */
+/** One of the main sections on the homepage [See type definition](https://app.contentful.com/spaces/6cgdkv8ktvf8/content_types/practicalItem) */
 export type PracticalItemTitleArgs = {
   locale?: Maybe<Scalars['String']>;
 };
@@ -646,6 +751,8 @@ export type Query = {
   asset?: Maybe<Asset>;
   assetCollection?: Maybe<AssetCollection>;
   entryCollection?: Maybe<EntryCollection>;
+  focusnumber?: Maybe<Focusnumber>;
+  focusnumberCollection?: Maybe<FocusnumberCollection>;
   member?: Maybe<Member>;
   memberCollection?: Maybe<MemberCollection>;
   practicalItem?: Maybe<PracticalItem>;
@@ -677,6 +784,23 @@ export type QueryEntryCollectionArgs = {
   preview?: Maybe<Scalars['Boolean']>;
   skip?: Maybe<Scalars['Int']>;
   where?: Maybe<EntryFilter>;
+};
+
+
+export type QueryFocusnumberArgs = {
+  id: Scalars['String'];
+  locale?: Maybe<Scalars['String']>;
+  preview?: Maybe<Scalars['Boolean']>;
+};
+
+
+export type QueryFocusnumberCollectionArgs = {
+  limit?: Maybe<Scalars['Int']>;
+  locale?: Maybe<Scalars['String']>;
+  order?: Maybe<Array<Maybe<FocusnumberOrder>>>;
+  preview?: Maybe<Scalars['Boolean']>;
+  skip?: Maybe<Scalars['Int']>;
+  where?: Maybe<FocusnumberFilter>;
 };
 
 
@@ -760,6 +884,11 @@ export type SysFilter = {
   publishedVersion_not_in?: Maybe<Array<Maybe<Scalars['Float']>>>;
 };
 
+export type GetFocusNumbersQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetFocusNumbersQuery = { __typename?: 'Query', focusnumberCollection?: { __typename?: 'FocusnumberCollection', total: number, items: Array<{ __typename?: 'Focusnumber', title?: string | null, number?: number | null, order?: number | null } | null> } | null };
+
 export type GetMembersQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -771,6 +900,45 @@ export type GetPracticalItemsQueryVariables = Exact<{ [key: string]: never; }>;
 export type GetPracticalItemsQuery = { __typename?: 'Query', practicalItemCollection?: { __typename?: 'PracticalItemCollection', total: number, items: Array<{ __typename?: 'PracticalItem', title?: string | null, icon?: string | null, order?: number | null, description?: { __typename?: 'PracticalItemDescription', json: any } | null } | null> } | null };
 
 
+export const GetFocusNumbersDocument = gql`
+    query getFocusNumbers {
+  focusnumberCollection {
+    total
+    items {
+      title
+      number
+      order
+    }
+  }
+}
+    `;
+
+/**
+ * __useGetFocusNumbersQuery__
+ *
+ * To run a query within a React component, call `useGetFocusNumbersQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetFocusNumbersQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetFocusNumbersQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useGetFocusNumbersQuery(baseOptions?: Apollo.QueryHookOptions<GetFocusNumbersQuery, GetFocusNumbersQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GetFocusNumbersQuery, GetFocusNumbersQueryVariables>(GetFocusNumbersDocument, options);
+      }
+export function useGetFocusNumbersLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetFocusNumbersQuery, GetFocusNumbersQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GetFocusNumbersQuery, GetFocusNumbersQueryVariables>(GetFocusNumbersDocument, options);
+        }
+export type GetFocusNumbersQueryHookResult = ReturnType<typeof useGetFocusNumbersQuery>;
+export type GetFocusNumbersLazyQueryHookResult = ReturnType<typeof useGetFocusNumbersLazyQuery>;
+export type GetFocusNumbersQueryResult = Apollo.QueryResult<GetFocusNumbersQuery, GetFocusNumbersQueryVariables>;
 export const GetMembersDocument = gql`
     query getMembers {
   memberCollection {
