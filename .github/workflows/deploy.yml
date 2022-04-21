@@ -25,6 +25,7 @@ jobs:
         node-version: '12'
       
     - name: 🔨 Build Project
+      working-directory: ./src
       run: |
         npm install
         npm run build
