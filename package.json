@@ -21,6 +21,7 @@
     "web-vitals": "^1.1.2"
   },
   "scripts": {
+    "shout": "echo 'Lets go!!'",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "codegen": "graphql-codegen --config codegen.yml"

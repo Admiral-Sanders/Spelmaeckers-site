@@ -28,6 +28,7 @@ jobs:
       working-directory: ./src
       run: |
         npm install
+        npm run shout
         npm run build
     
     - name: 📂 Sync files
