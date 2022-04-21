@@ -8,6 +8,10 @@ interface Props {
 
 }
 
+const sortItems = (items: any[]): any[] => {
+  return [...items].sort((a, b) => (a?.order || 99) > (b?.order || 99) ? 1 : -1)
+}
+
 const PracticalSection: React.FC<Props> = () => {
   const { data, error, loading } = useGetPracticalItemsQuery();
 
@@ -18,7 +22,7 @@ const PracticalSection: React.FC<Props> = () => {
   return (
     <SectionWrapper title="practicalSection.title">
       <Row className="infoRow">
-        { data?.practicalItemCollection?.items.map(item => <InfoBlock key={item?.title} title={item?.title || ""} description={item?.description || ""} icon={item?.icon}></InfoBlock>)}
+        { sortItems(data?.practicalItemCollection?.items || []).map(item => <InfoBlock key={item?.title} title={item?.title || ""} description={item?.description || ""} icon={item?.icon}></InfoBlock>)}
       </Row>
     </SectionWrapper>
   );

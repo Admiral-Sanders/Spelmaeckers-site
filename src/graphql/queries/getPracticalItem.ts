@@ -10,6 +10,7 @@ export const QUERY_GET_PRACTICAL_ITEMS = gql`
           json
         }
         icon
+        order
       }
     }
   }

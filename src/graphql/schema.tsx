@@ -510,6 +510,7 @@ export type PracticalItem = Entry & {
   description?: Maybe<PracticalItemDescription>;
   icon?: Maybe<Scalars['String']>;
   linkedFrom?: Maybe<PracticalItemLinkingCollections>;
+  order?: Maybe<Scalars['Int']>;
   sys: Sys;
   title?: Maybe<Scalars['String']>;
 };
@@ -530,6 +531,12 @@ export type PracticalItemIconArgs = {
 /** [See type definition](https://app.contentful.com/spaces/6cgdkv8ktvf8/content_types/practicalItem) */
 export type PracticalItemLinkedFromArgs = {
   allowedLocales?: Maybe<Array<Maybe<Scalars['String']>>>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/6cgdkv8ktvf8/content_types/practicalItem) */
+export type PracticalItemOrderArgs = {
+  locale?: Maybe<Scalars['String']>;
 };
 
 
@@ -585,6 +592,15 @@ export type PracticalItemFilter = {
   icon_not?: Maybe<Scalars['String']>;
   icon_not_contains?: Maybe<Scalars['String']>;
   icon_not_in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  order?: Maybe<Scalars['Int']>;
+  order_exists?: Maybe<Scalars['Boolean']>;
+  order_gt?: Maybe<Scalars['Int']>;
+  order_gte?: Maybe<Scalars['Int']>;
+  order_in?: Maybe<Array<Maybe<Scalars['Int']>>>;
+  order_lt?: Maybe<Scalars['Int']>;
+  order_lte?: Maybe<Scalars['Int']>;
+  order_not?: Maybe<Scalars['Int']>;
+  order_not_in?: Maybe<Array<Maybe<Scalars['Int']>>>;
   sys?: Maybe<SysFilter>;
   title?: Maybe<Scalars['String']>;
   title_contains?: Maybe<Scalars['String']>;
@@ -611,6 +627,8 @@ export type PracticalItemLinkingCollectionsEntryCollectionArgs = {
 export enum PracticalItemOrder {
   IconAsc = 'icon_ASC',
   IconDesc = 'icon_DESC',
+  OrderAsc = 'order_ASC',
+  OrderDesc = 'order_DESC',
   SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
   SysFirstPublishedAtDesc = 'sys_firstPublishedAt_DESC',
   SysIdAsc = 'sys_id_ASC',
@@ -750,7 +768,7 @@ export type GetMembersQuery = { __typename?: 'Query', memberCollection?: { __typ
 export type GetPracticalItemsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetPracticalItemsQuery = { __typename?: 'Query', practicalItemCollection?: { __typename?: 'PracticalItemCollection', total: number, items: Array<{ __typename?: 'PracticalItem', title?: string | null, icon?: string | null, description?: { __typename?: 'PracticalItemDescription', json: any } | null } | null> } | null };
+export type GetPracticalItemsQuery = { __typename?: 'Query', practicalItemCollection?: { __typename?: 'PracticalItemCollection', total: number, items: Array<{ __typename?: 'PracticalItem', title?: string | null, icon?: string | null, order?: number | null, description?: { __typename?: 'PracticalItemDescription', json: any } | null } | null> } | null };
 
 
 export const GetMembersDocument = gql`
@@ -807,6 +825,7 @@ export const GetPracticalItemsDocument = gql`
         json
       }
       icon
+      order
     }
   }
 }
