@@ -1002,6 +1002,11 @@ export type GetMembersQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type GetMembersQuery = { __typename?: 'Query', memberCollection?: { __typename?: 'MemberCollection', total: number, items: Array<{ __typename?: 'Member', name?: string | null, facebookLink?: string | null, description?: { __typename?: 'MemberDescription', json: any } | null, profilePicture?: { __typename?: 'Asset', url?: string | null } | null } | null> } | null };
 
+export type GetNewGamesQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetNewGamesQuery = { __typename?: 'Query', assetCollection?: { __typename?: 'AssetCollection', items: Array<{ __typename?: 'Asset', title?: string | null, url?: string | null } | null> } | null };
+
 export type GetNumberPricesQueryVariables = Exact<{
   currentCounter: Scalars['Int'];
 }>;
@@ -1098,6 +1103,45 @@ export function useGetMembersLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions
 export type GetMembersQueryHookResult = ReturnType<typeof useGetMembersQuery>;
 export type GetMembersLazyQueryHookResult = ReturnType<typeof useGetMembersLazyQuery>;
 export type GetMembersQueryResult = Apollo.QueryResult<GetMembersQuery, GetMembersQueryVariables>;
+export const GetNewGamesDocument = gql`
+    query getNewGames {
+  assetCollection(
+    where: {contentfulMetadata: {tags: {id_contains_all: ["newGame"]}}}
+  ) {
+    items {
+      title
+      url
+    }
+  }
+}
+    `;
+
+/**
+ * __useGetNewGamesQuery__
+ *
+ * To run a query within a React component, call `useGetNewGamesQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetNewGamesQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetNewGamesQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useGetNewGamesQuery(baseOptions?: Apollo.QueryHookOptions<GetNewGamesQuery, GetNewGamesQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GetNewGamesQuery, GetNewGamesQueryVariables>(GetNewGamesDocument, options);
+      }
+export function useGetNewGamesLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetNewGamesQuery, GetNewGamesQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GetNewGamesQuery, GetNewGamesQueryVariables>(GetNewGamesDocument, options);
+        }
+export type GetNewGamesQueryHookResult = ReturnType<typeof useGetNewGamesQuery>;
+export type GetNewGamesLazyQueryHookResult = ReturnType<typeof useGetNewGamesLazyQuery>;
+export type GetNewGamesQueryResult = Apollo.QueryResult<GetNewGamesQuery, GetNewGamesQueryVariables>;
 export const GetNumberPricesDocument = gql`
     query getNumberPrices($currentCounter: Int!) {
   numberpriceCollection(limit: 2, where: {number_gt: $currentCounter}) {

@@ -1,6 +1,7 @@
 import { DownCircleOutlined } from "@ant-design/icons";
 import { Affix } from "antd";
 import { Header } from "antd/lib/layout/layout";
+import { Asset, useGetNewGamesQuery } from "graphql/schema";
 import AppHeader from "layout/components/header/header";
 import { Link } from "react-router-dom";
 import EventSection from "../../components/eventSection";
@@ -17,13 +18,15 @@ interface Props {
 }
 
 const HomePage: React.FC<Props> = () => {
-  const images = [
-    "https://cf.geekdo-images.com/SoClIcwjDo_iZs0idVikDw__opengraph/img/Oi4Yub0J7r6VqnQv0jzeG8keTMk=/fit-in/1200x630/filters:strip_icc()/pic4848330.jpg",
-    "https://www.board-game.co.uk/wp-content/uploads/2020/06/Azul-Summer-Pavilion.jpg",
-    "https://cf.geekdo-images.com/Ndctxvd7kBXYubeYRKRqzw__opengraph/img/ICTqakLDPah8-kJwhMKhccTlt4o=/fit-in/1200x630/filters:strip_icc()/pic4258616.jpg",
-    "https://www.999games.nl/pub/media/catalog/product/D/e/DeCrew_L.png",
-    "https://media.s-bol.com/qxY1nDYAOG67/550x720.jpg"
-  ];
+  const { data, error, loading } = useGetNewGamesQuery();
+
+  if (loading) {
+    return <p>Loading</p>; //TODO FIX LOADING
+  }
+
+  const getImages = (assets: Partial<Asset|null>[]): string[] => {
+    return assets.map(asset => asset?.url || "").filter(url => url.length);
+  }
 
   return (
     <div>
@@ -49,7 +52,7 @@ const HomePage: React.FC<Props> = () => {
           <EventSection></EventSection>
         </div>
 
-        <GallerySection title="newGamesSection.title" images={images}></GallerySection>
+        <GallerySection title="newGamesSection.title" images={getImages(data?.assetCollection?.items || [])}></GallerySection>
 
         <LinkSection backgroundImage="https://berlinspectator.com/wp-content/uploads/2022/02/board-games-settlers-of-catan-free-001.jpg" link="http://eepurl.com/dts8Q5" text="linkSection.newsletter"></LinkSection>
 
