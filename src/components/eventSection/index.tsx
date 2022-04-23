@@ -3,17 +3,21 @@ import Moment from 'react-moment';
 import SectionWrapper from "components/sectionWrapper";
 import "./styles.scss";
 import { Link } from "react-router-dom";
+import { useGetEventsQuery } from "graphql/schema";
 
 interface Props {
-
+  currentDatetime: string;
 }
 
-const upComingEvents = [
-  { title: "Spellenavond april", from: new Date("2022-04-22T19:00"), to: new Date("2022-04-22T23:30"), url: "https://www.facebook.com/events/961873244655901/961873267989232?acontext=%7B%22event_action_history%22%3A[%7B%22surface%22%3A%22page%22%7D]%7D"},
-  { title: "Spellenavond mei", from: new Date("2022-05-20T19:00"), to: new Date("2022-05-20T23:30"), url: "https://www.facebook.com/events/961873244655901/961873261322566/?acontext=%7B%22event_action_history%22%3A[%7B%22extra_data%22%3A%22%22%2C%22mechanism%22%3A%22unknown%22%2C%22surface%22%3A%22page%22%7D%2C%7B%22extra_data%22%3A%22%22%2C%22mechanism%22%3A%22surface%22%2C%22surface%22%3A%22permalink%22%7D]%2C%22ref_notif_type%22%3Anull%7D"},
-]
+const EventSection: React.FC<Props> = ({ currentDatetime }) => {
+  const { data, error, loading } = useGetEventsQuery({
+    variables: { now: currentDatetime }
+  });
 
-const EventSection: React.FC<Props> = () => {
+  if (loading) {
+    return <p>Loading</p>; //TODO FIX LOADING
+  }
+
   const renderEvent = (event: any) => {
     return (
       <Col key={event.title} className="event">
@@ -25,10 +29,11 @@ const EventSection: React.FC<Props> = () => {
       </Col>
     )
   };
+
   return (
     <SectionWrapper title="eventSection.title">
       <Row justify="center" gutter={64}>
-        { upComingEvents.map(event => renderEvent(event))}
+        { data?.eventCollection?.items?.map(event => renderEvent(event))}
       </Row>
     </SectionWrapper>
   );

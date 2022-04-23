@@ -288,6 +288,127 @@ export enum EntryOrder {
   SysPublishedVersionDesc = 'sys_publishedVersion_DESC'
 }
 
+/** [See type definition](https://app.contentful.com/spaces/6cgdkv8ktvf8/content_types/event) */
+export type Event = Entry & {
+  __typename?: 'Event';
+  contentfulMetadata: ContentfulMetadata;
+  from?: Maybe<Scalars['DateTime']>;
+  link?: Maybe<Scalars['String']>;
+  linkedFrom?: Maybe<EventLinkingCollections>;
+  sys: Sys;
+  title?: Maybe<Scalars['String']>;
+  to?: Maybe<Scalars['DateTime']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/6cgdkv8ktvf8/content_types/event) */
+export type EventFromArgs = {
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/6cgdkv8ktvf8/content_types/event) */
+export type EventLinkArgs = {
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/6cgdkv8ktvf8/content_types/event) */
+export type EventLinkedFromArgs = {
+  allowedLocales?: Maybe<Array<Maybe<Scalars['String']>>>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/6cgdkv8ktvf8/content_types/event) */
+export type EventTitleArgs = {
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/6cgdkv8ktvf8/content_types/event) */
+export type EventToArgs = {
+  locale?: Maybe<Scalars['String']>;
+};
+
+export type EventCollection = {
+  __typename?: 'EventCollection';
+  items: Array<Maybe<Event>>;
+  limit: Scalars['Int'];
+  skip: Scalars['Int'];
+  total: Scalars['Int'];
+};
+
+export type EventFilter = {
+  AND?: Maybe<Array<Maybe<EventFilter>>>;
+  OR?: Maybe<Array<Maybe<EventFilter>>>;
+  contentfulMetadata?: Maybe<ContentfulMetadataFilter>;
+  from?: Maybe<Scalars['DateTime']>;
+  from_exists?: Maybe<Scalars['Boolean']>;
+  from_gt?: Maybe<Scalars['DateTime']>;
+  from_gte?: Maybe<Scalars['DateTime']>;
+  from_in?: Maybe<Array<Maybe<Scalars['DateTime']>>>;
+  from_lt?: Maybe<Scalars['DateTime']>;
+  from_lte?: Maybe<Scalars['DateTime']>;
+  from_not?: Maybe<Scalars['DateTime']>;
+  from_not_in?: Maybe<Array<Maybe<Scalars['DateTime']>>>;
+  link?: Maybe<Scalars['String']>;
+  link_contains?: Maybe<Scalars['String']>;
+  link_exists?: Maybe<Scalars['Boolean']>;
+  link_in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  link_not?: Maybe<Scalars['String']>;
+  link_not_contains?: Maybe<Scalars['String']>;
+  link_not_in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  sys?: Maybe<SysFilter>;
+  title?: Maybe<Scalars['String']>;
+  title_contains?: Maybe<Scalars['String']>;
+  title_exists?: Maybe<Scalars['Boolean']>;
+  title_in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  title_not?: Maybe<Scalars['String']>;
+  title_not_contains?: Maybe<Scalars['String']>;
+  title_not_in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  to?: Maybe<Scalars['DateTime']>;
+  to_exists?: Maybe<Scalars['Boolean']>;
+  to_gt?: Maybe<Scalars['DateTime']>;
+  to_gte?: Maybe<Scalars['DateTime']>;
+  to_in?: Maybe<Array<Maybe<Scalars['DateTime']>>>;
+  to_lt?: Maybe<Scalars['DateTime']>;
+  to_lte?: Maybe<Scalars['DateTime']>;
+  to_not?: Maybe<Scalars['DateTime']>;
+  to_not_in?: Maybe<Array<Maybe<Scalars['DateTime']>>>;
+};
+
+export type EventLinkingCollections = {
+  __typename?: 'EventLinkingCollections';
+  entryCollection?: Maybe<EntryCollection>;
+};
+
+
+export type EventLinkingCollectionsEntryCollectionArgs = {
+  limit?: Maybe<Scalars['Int']>;
+  locale?: Maybe<Scalars['String']>;
+  preview?: Maybe<Scalars['Boolean']>;
+  skip?: Maybe<Scalars['Int']>;
+};
+
+export enum EventOrder {
+  FromAsc = 'from_ASC',
+  FromDesc = 'from_DESC',
+  LinkAsc = 'link_ASC',
+  LinkDesc = 'link_DESC',
+  SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
+  SysFirstPublishedAtDesc = 'sys_firstPublishedAt_DESC',
+  SysIdAsc = 'sys_id_ASC',
+  SysIdDesc = 'sys_id_DESC',
+  SysPublishedAtAsc = 'sys_publishedAt_ASC',
+  SysPublishedAtDesc = 'sys_publishedAt_DESC',
+  SysPublishedVersionAsc = 'sys_publishedVersion_ASC',
+  SysPublishedVersionDesc = 'sys_publishedVersion_DESC',
+  TitleAsc = 'title_ASC',
+  TitleDesc = 'title_DESC',
+  ToAsc = 'to_ASC',
+  ToDesc = 'to_DESC'
+}
+
 /** One of the focus numbers on the homepage [See type definition](https://app.contentful.com/spaces/6cgdkv8ktvf8/content_types/focusnumber) */
 export type Focusnumber = Entry & {
   __typename?: 'Focusnumber';
@@ -840,6 +961,8 @@ export type Query = {
   asset?: Maybe<Asset>;
   assetCollection?: Maybe<AssetCollection>;
   entryCollection?: Maybe<EntryCollection>;
+  event?: Maybe<Event>;
+  eventCollection?: Maybe<EventCollection>;
   focusnumber?: Maybe<Focusnumber>;
   focusnumberCollection?: Maybe<FocusnumberCollection>;
   member?: Maybe<Member>;
@@ -875,6 +998,23 @@ export type QueryEntryCollectionArgs = {
   preview?: Maybe<Scalars['Boolean']>;
   skip?: Maybe<Scalars['Int']>;
   where?: Maybe<EntryFilter>;
+};
+
+
+export type QueryEventArgs = {
+  id: Scalars['String'];
+  locale?: Maybe<Scalars['String']>;
+  preview?: Maybe<Scalars['Boolean']>;
+};
+
+
+export type QueryEventCollectionArgs = {
+  limit?: Maybe<Scalars['Int']>;
+  locale?: Maybe<Scalars['String']>;
+  order?: Maybe<Array<Maybe<EventOrder>>>;
+  preview?: Maybe<Scalars['Boolean']>;
+  skip?: Maybe<Scalars['Int']>;
+  where?: Maybe<EventFilter>;
 };
 
 
@@ -992,6 +1132,13 @@ export type SysFilter = {
   publishedVersion_not_in?: Maybe<Array<Maybe<Scalars['Float']>>>;
 };
 
+export type GetEventsQueryVariables = Exact<{
+  now: Scalars['DateTime'];
+}>;
+
+
+export type GetEventsQuery = { __typename?: 'Query', eventCollection?: { __typename?: 'EventCollection', total: number, items: Array<{ __typename?: 'Event', title?: string | null, link?: string | null, from?: any | null, to?: any | null } | null> } | null };
+
 export type GetFocusNumbersQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -1020,6 +1167,47 @@ export type GetPracticalItemsQueryVariables = Exact<{ [key: string]: never; }>;
 export type GetPracticalItemsQuery = { __typename?: 'Query', practicalItemCollection?: { __typename?: 'PracticalItemCollection', total: number, items: Array<{ __typename?: 'PracticalItem', title?: string | null, icon?: string | null, order?: number | null, description?: { __typename?: 'PracticalItemDescription', json: any } | null } | null> } | null };
 
 
+export const GetEventsDocument = gql`
+    query getEvents($now: DateTime!) {
+  eventCollection(where: {to_gte: $now}) {
+    total
+    items {
+      title
+      link
+      from
+      to
+    }
+  }
+}
+    `;
+
+/**
+ * __useGetEventsQuery__
+ *
+ * To run a query within a React component, call `useGetEventsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetEventsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetEventsQuery({
+ *   variables: {
+ *      now: // value for 'now'
+ *   },
+ * });
+ */
+export function useGetEventsQuery(baseOptions: Apollo.QueryHookOptions<GetEventsQuery, GetEventsQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GetEventsQuery, GetEventsQueryVariables>(GetEventsDocument, options);
+      }
+export function useGetEventsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetEventsQuery, GetEventsQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GetEventsQuery, GetEventsQueryVariables>(GetEventsDocument, options);
+        }
+export type GetEventsQueryHookResult = ReturnType<typeof useGetEventsQuery>;
+export type GetEventsLazyQueryHookResult = ReturnType<typeof useGetEventsLazyQuery>;
+export type GetEventsQueryResult = Apollo.QueryResult<GetEventsQuery, GetEventsQueryVariables>;
 export const GetFocusNumbersDocument = gql`
     query getFocusNumbers {
   focusnumberCollection {

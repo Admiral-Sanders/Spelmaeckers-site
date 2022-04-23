@@ -1,16 +1,13 @@
 import { DownCircleOutlined } from "@ant-design/icons";
 import { Affix } from "antd";
-import { Header } from "antd/lib/layout/layout";
 import { Asset, useGetNewGamesQuery } from "graphql/schema";
 import AppHeader from "layout/components/header/header";
-import { Link } from "react-router-dom";
 import EventSection from "../../components/eventSection";
 import GallerySection from "../../components/gallerySection";
 import LinkSection from "../../components/linkSection";
 import MembersSection from "../../components/membersSection";
 import NumbersSection from "../../components/numbersSection";
 import PracticalSection from "../../components/practicalSection";
-import PriceSection from "../../components/priceSection";
 import "./styles.scss";
 
 interface Props {
@@ -18,6 +15,7 @@ interface Props {
 }
 
 const HomePage: React.FC<Props> = () => {
+  const currentDate = new Date().toISOString();
   const { data, error, loading } = useGetNewGamesQuery();
 
   if (loading) {
@@ -49,7 +47,7 @@ const HomePage: React.FC<Props> = () => {
         <NumbersSection></NumbersSection>
 
         <div className="grayBackground">
-          <EventSection></EventSection>
+          <EventSection currentDatetime={currentDate}></EventSection>
         </div>
 
         <GallerySection title="newGamesSection.title" images={getImages(data?.assetCollection?.items || [])}></GallerySection>
