@@ -181,6 +181,7 @@ export type AssetLinkingCollections = {
   __typename?: 'AssetLinkingCollections';
   entryCollection?: Maybe<EntryCollection>;
   memberCollection?: Maybe<MemberCollection>;
+  numberpriceCollection?: Maybe<NumberpriceCollection>;
 };
 
 
@@ -193,6 +194,14 @@ export type AssetLinkingCollectionsEntryCollectionArgs = {
 
 
 export type AssetLinkingCollectionsMemberCollectionArgs = {
+  limit?: Maybe<Scalars['Int']>;
+  locale?: Maybe<Scalars['String']>;
+  preview?: Maybe<Scalars['Boolean']>;
+  skip?: Maybe<Scalars['Int']>;
+};
+
+
+export type AssetLinkingCollectionsNumberpriceCollectionArgs = {
   limit?: Maybe<Scalars['Int']>;
   locale?: Maybe<Scalars['String']>;
   preview?: Maybe<Scalars['Boolean']>;
@@ -608,6 +617,86 @@ export enum MemberOrder {
   SysPublishedVersionDesc = 'sys_publishedVersion_DESC'
 }
 
+/** Prices for when the Spelmaeckers counter rises [See type definition](https://app.contentful.com/spaces/6cgdkv8ktvf8/content_types/numberprice) */
+export type Numberprice = Entry & {
+  __typename?: 'Numberprice';
+  contentfulMetadata: ContentfulMetadata;
+  image?: Maybe<Asset>;
+  linkedFrom?: Maybe<NumberpriceLinkingCollections>;
+  number?: Maybe<Scalars['Int']>;
+  sys: Sys;
+};
+
+
+/** Prices for when the Spelmaeckers counter rises [See type definition](https://app.contentful.com/spaces/6cgdkv8ktvf8/content_types/numberprice) */
+export type NumberpriceImageArgs = {
+  locale?: Maybe<Scalars['String']>;
+  preview?: Maybe<Scalars['Boolean']>;
+};
+
+
+/** Prices for when the Spelmaeckers counter rises [See type definition](https://app.contentful.com/spaces/6cgdkv8ktvf8/content_types/numberprice) */
+export type NumberpriceLinkedFromArgs = {
+  allowedLocales?: Maybe<Array<Maybe<Scalars['String']>>>;
+};
+
+
+/** Prices for when the Spelmaeckers counter rises [See type definition](https://app.contentful.com/spaces/6cgdkv8ktvf8/content_types/numberprice) */
+export type NumberpriceNumberArgs = {
+  locale?: Maybe<Scalars['String']>;
+};
+
+export type NumberpriceCollection = {
+  __typename?: 'NumberpriceCollection';
+  items: Array<Maybe<Numberprice>>;
+  limit: Scalars['Int'];
+  skip: Scalars['Int'];
+  total: Scalars['Int'];
+};
+
+export type NumberpriceFilter = {
+  AND?: Maybe<Array<Maybe<NumberpriceFilter>>>;
+  OR?: Maybe<Array<Maybe<NumberpriceFilter>>>;
+  contentfulMetadata?: Maybe<ContentfulMetadataFilter>;
+  image_exists?: Maybe<Scalars['Boolean']>;
+  number?: Maybe<Scalars['Int']>;
+  number_exists?: Maybe<Scalars['Boolean']>;
+  number_gt?: Maybe<Scalars['Int']>;
+  number_gte?: Maybe<Scalars['Int']>;
+  number_in?: Maybe<Array<Maybe<Scalars['Int']>>>;
+  number_lt?: Maybe<Scalars['Int']>;
+  number_lte?: Maybe<Scalars['Int']>;
+  number_not?: Maybe<Scalars['Int']>;
+  number_not_in?: Maybe<Array<Maybe<Scalars['Int']>>>;
+  sys?: Maybe<SysFilter>;
+};
+
+export type NumberpriceLinkingCollections = {
+  __typename?: 'NumberpriceLinkingCollections';
+  entryCollection?: Maybe<EntryCollection>;
+};
+
+
+export type NumberpriceLinkingCollectionsEntryCollectionArgs = {
+  limit?: Maybe<Scalars['Int']>;
+  locale?: Maybe<Scalars['String']>;
+  preview?: Maybe<Scalars['Boolean']>;
+  skip?: Maybe<Scalars['Int']>;
+};
+
+export enum NumberpriceOrder {
+  NumberAsc = 'number_ASC',
+  NumberDesc = 'number_DESC',
+  SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
+  SysFirstPublishedAtDesc = 'sys_firstPublishedAt_DESC',
+  SysIdAsc = 'sys_id_ASC',
+  SysIdDesc = 'sys_id_DESC',
+  SysPublishedAtAsc = 'sys_publishedAt_ASC',
+  SysPublishedAtDesc = 'sys_publishedAt_DESC',
+  SysPublishedVersionAsc = 'sys_publishedVersion_ASC',
+  SysPublishedVersionDesc = 'sys_publishedVersion_DESC'
+}
+
 /** One of the main sections on the homepage [See type definition](https://app.contentful.com/spaces/6cgdkv8ktvf8/content_types/practicalItem) */
 export type PracticalItem = Entry & {
   __typename?: 'PracticalItem';
@@ -755,6 +844,8 @@ export type Query = {
   focusnumberCollection?: Maybe<FocusnumberCollection>;
   member?: Maybe<Member>;
   memberCollection?: Maybe<MemberCollection>;
+  numberprice?: Maybe<Numberprice>;
+  numberpriceCollection?: Maybe<NumberpriceCollection>;
   practicalItem?: Maybe<PracticalItem>;
   practicalItemCollection?: Maybe<PracticalItemCollection>;
 };
@@ -818,6 +909,23 @@ export type QueryMemberCollectionArgs = {
   preview?: Maybe<Scalars['Boolean']>;
   skip?: Maybe<Scalars['Int']>;
   where?: Maybe<MemberFilter>;
+};
+
+
+export type QueryNumberpriceArgs = {
+  id: Scalars['String'];
+  locale?: Maybe<Scalars['String']>;
+  preview?: Maybe<Scalars['Boolean']>;
+};
+
+
+export type QueryNumberpriceCollectionArgs = {
+  limit?: Maybe<Scalars['Int']>;
+  locale?: Maybe<Scalars['String']>;
+  order?: Maybe<Array<Maybe<NumberpriceOrder>>>;
+  preview?: Maybe<Scalars['Boolean']>;
+  skip?: Maybe<Scalars['Int']>;
+  where?: Maybe<NumberpriceFilter>;
 };
 
 
@@ -893,6 +1001,13 @@ export type GetMembersQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type GetMembersQuery = { __typename?: 'Query', memberCollection?: { __typename?: 'MemberCollection', total: number, items: Array<{ __typename?: 'Member', name?: string | null, facebookLink?: string | null, description?: { __typename?: 'MemberDescription', json: any } | null, profilePicture?: { __typename?: 'Asset', url?: string | null } | null } | null> } | null };
+
+export type GetNumberPricesQueryVariables = Exact<{
+  currentCounter: Scalars['Int'];
+}>;
+
+
+export type GetNumberPricesQuery = { __typename?: 'Query', numberpriceCollection?: { __typename?: 'NumberpriceCollection', total: number, items: Array<{ __typename?: 'Numberprice', number?: number | null, image?: { __typename?: 'Asset', url?: string | null } | null } | null> } | null };
 
 export type GetPracticalItemsQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -983,6 +1098,47 @@ export function useGetMembersLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions
 export type GetMembersQueryHookResult = ReturnType<typeof useGetMembersQuery>;
 export type GetMembersLazyQueryHookResult = ReturnType<typeof useGetMembersLazyQuery>;
 export type GetMembersQueryResult = Apollo.QueryResult<GetMembersQuery, GetMembersQueryVariables>;
+export const GetNumberPricesDocument = gql`
+    query getNumberPrices($currentCounter: Int!) {
+  numberpriceCollection(limit: 2, where: {number_gt: $currentCounter}) {
+    total
+    items {
+      number
+      image {
+        url
+      }
+    }
+  }
+}
+    `;
+
+/**
+ * __useGetNumberPricesQuery__
+ *
+ * To run a query within a React component, call `useGetNumberPricesQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetNumberPricesQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetNumberPricesQuery({
+ *   variables: {
+ *      currentCounter: // value for 'currentCounter'
+ *   },
+ * });
+ */
+export function useGetNumberPricesQuery(baseOptions: Apollo.QueryHookOptions<GetNumberPricesQuery, GetNumberPricesQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GetNumberPricesQuery, GetNumberPricesQueryVariables>(GetNumberPricesDocument, options);
+      }
+export function useGetNumberPricesLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetNumberPricesQuery, GetNumberPricesQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GetNumberPricesQuery, GetNumberPricesQueryVariables>(GetNumberPricesDocument, options);
+        }
+export type GetNumberPricesQueryHookResult = ReturnType<typeof useGetNumberPricesQuery>;
+export type GetNumberPricesLazyQueryHookResult = ReturnType<typeof useGetNumberPricesLazyQuery>;
+export type GetNumberPricesQueryResult = Apollo.QueryResult<GetNumberPricesQuery, GetNumberPricesQueryVariables>;
 export const GetPracticalItemsDocument = gql`
     query getPracticalItems {
   practicalItemCollection {

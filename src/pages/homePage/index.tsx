@@ -44,7 +44,6 @@ const HomePage: React.FC<Props> = () => {
         </div>
 
         <NumbersSection></NumbersSection>
-        <PriceSection></PriceSection>
 
         <div className="grayBackground">
           <EventSection></EventSection>

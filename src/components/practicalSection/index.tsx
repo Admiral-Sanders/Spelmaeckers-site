@@ -3,13 +3,10 @@ import SectionWrapper from "components/sectionWrapper";
 import InfoBlock from "./components/infoBlock";
 import "./styles.scss";
 import { useGetPracticalItemsQuery } from "graphql/schema";
+import sortItems from "utils/sorter";
 
 interface Props {
 
-}
-
-const sortItems = (items: any[]): any[] => {
-  return [...items].sort((a, b) => (a?.order || 99) > (b?.order || 99) ? 1 : -1)
 }
 
 const PracticalSection: React.FC<Props> = () => {

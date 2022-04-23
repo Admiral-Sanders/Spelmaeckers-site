@@ -1,17 +1,13 @@
 import { Col, Row } from "antd";
+import PriceSection from "components/priceSection";
 import SectionWrapper from "components/sectionWrapper";
 import { Focusnumber, Maybe, useGetFocusNumbersQuery } from "graphql/schema";
-import { string } from "yargs";
+import sortItems from "utils/sorter";
 import "./styles.scss";
 
 interface Props {
 
 }
-
-const sortItems = (items: any[]): any[] => {
-  return [...items].sort((a, b) => (a?.order || 99) > (b?.order || 99) ? 1 : -1)
-}
-
 
 const NumbersSection: React.FC<Props> = () => {
   const { data, error, loading } = useGetFocusNumbersQuery();
@@ -27,12 +23,19 @@ const NumbersSection: React.FC<Props> = () => {
         <p>{item.title}</p>
       </Col>
     );
-  }
+  };
+
+  const getCurrentCounter = (items: any[]): Number => {
+    return items.find(item => item.title === "Spelmaeckers")?.number || 10000000;
+  };
+
   return (
     <SectionWrapper title="numbersSection.title">
       <Row gutter={200} justify="center" className="numbersRow">
         { sortItems(data?.focusnumberCollection?.items || []).map((number) => renderNumberBlock(number))}
       </Row>
+
+      <PriceSection currentCounter={getCurrentCounter(data?.focusnumberCollection?.items || [])}></PriceSection>
     </SectionWrapper>
   );
 };
