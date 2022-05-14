@@ -1,6 +1,7 @@
 import { DownCircleOutlined } from "@ant-design/icons";
 import { Affix } from "antd";
 import { Asset, useGetNewGamesQuery } from "graphql/schema";
+import AppFooter from "layout/components/footer/footer";
 import AppHeader from "layout/components/header/header";
 import EventSection from "../../components/eventSection";
 import GallerySection from "../../components/gallerySection";
@@ -52,11 +53,13 @@ const HomePage: React.FC<Props> = () => {
 
         <GallerySection title="newGamesSection.title" images={getImages(data?.assetCollection?.items || [])}></GallerySection>
 
-        <LinkSection backgroundImage="https://berlinspectator.com/wp-content/uploads/2022/02/board-games-settlers-of-catan-free-001.jpg" link="http://eepurl.com/dts8Q5" text="linkSection.newsletter"></LinkSection>
+        <LinkSection backgroundImage="https://despelmaeckers.be/images/link.png" link="http://eepurl.com/dts8Q5" text="linkSection.newsletter"></LinkSection>
 
         <div className="grayBackground">
           <MembersSection></MembersSection>
         </div>
+
+        <AppFooter />
       </div>
     </div>
   );
