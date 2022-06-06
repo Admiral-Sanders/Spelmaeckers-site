@@ -21,7 +21,7 @@ const EventSection: React.FC<Props> = ({ currentDatetime }) => {
   const renderEvent = (event: any) => {
     return (
       <Col key={event.title} className="event">
-        <Link to={{ pathname: event.url}} target="_blank">
+        <Link to={{ pathname: event.link}} target="_blank">
         <img style={{ maxWidth: 200 }} src="https://despelmaeckers.be/images/event-logo.png"></img>
         <h1>{event.title}</h1>
         <h2><Moment format="D MMMM @ HH:mm">{event.from}</Moment> { event.to && <Moment format="- HH:mm">{event.to}</Moment>}</h2>

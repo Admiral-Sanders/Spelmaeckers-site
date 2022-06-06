@@ -746,6 +746,7 @@ export type Numberprice = Entry & {
   linkedFrom?: Maybe<NumberpriceLinkingCollections>;
   number?: Maybe<Scalars['Int']>;
   sys: Sys;
+  title?: Maybe<Scalars['String']>;
 };
 
 
@@ -764,6 +765,12 @@ export type NumberpriceLinkedFromArgs = {
 
 /** Prices for when the Spelmaeckers counter rises [See type definition](https://app.contentful.com/spaces/6cgdkv8ktvf8/content_types/numberprice) */
 export type NumberpriceNumberArgs = {
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** Prices for when the Spelmaeckers counter rises [See type definition](https://app.contentful.com/spaces/6cgdkv8ktvf8/content_types/numberprice) */
+export type NumberpriceTitleArgs = {
   locale?: Maybe<Scalars['String']>;
 };
 
@@ -790,6 +797,13 @@ export type NumberpriceFilter = {
   number_not?: Maybe<Scalars['Int']>;
   number_not_in?: Maybe<Array<Maybe<Scalars['Int']>>>;
   sys?: Maybe<SysFilter>;
+  title?: Maybe<Scalars['String']>;
+  title_contains?: Maybe<Scalars['String']>;
+  title_exists?: Maybe<Scalars['Boolean']>;
+  title_in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  title_not?: Maybe<Scalars['String']>;
+  title_not_contains?: Maybe<Scalars['String']>;
+  title_not_in?: Maybe<Array<Maybe<Scalars['String']>>>;
 };
 
 export type NumberpriceLinkingCollections = {
@@ -815,7 +829,9 @@ export enum NumberpriceOrder {
   SysPublishedAtAsc = 'sys_publishedAt_ASC',
   SysPublishedAtDesc = 'sys_publishedAt_DESC',
   SysPublishedVersionAsc = 'sys_publishedVersion_ASC',
-  SysPublishedVersionDesc = 'sys_publishedVersion_DESC'
+  SysPublishedVersionDesc = 'sys_publishedVersion_DESC',
+  TitleAsc = 'title_ASC',
+  TitleDesc = 'title_DESC'
 }
 
 /** One of the main sections on the homepage [See type definition](https://app.contentful.com/spaces/6cgdkv8ktvf8/content_types/practicalItem) */
@@ -1169,7 +1185,7 @@ export type GetPracticalItemsQuery = { __typename?: 'Query', practicalItemCollec
 
 export const GetEventsDocument = gql`
     query getEvents($now: DateTime!) {
-  eventCollection(where: {to_gte: $now}) {
+  eventCollection(where: {from_gte: $now}) {
     total
     items {
       title
