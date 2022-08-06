@@ -1185,7 +1185,11 @@ export type GetPracticalItemsQuery = { __typename?: 'Query', practicalItemCollec
 
 export const GetEventsDocument = gql`
     query getEvents($now: DateTime!) {
-  eventCollection(where: {from_gte: $now}) {
+  eventCollection(
+    where: {OR: [{from_gte: $now}, {to_gte: $now}]}
+    limit: 3
+    order: from_ASC
+  ) {
     total
     items {
       title
