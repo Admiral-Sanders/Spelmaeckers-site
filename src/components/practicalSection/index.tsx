@@ -1,10 +1,10 @@
 import { Row } from 'antd';
+import Loading from 'components/loading';
 import SectionWrapper from 'components/sectionWrapper';
-import InfoBlock from './components/infoBlock';
-import './styles.scss';
 import { useGetPracticalItemsQuery } from 'graphql/schema';
 import sortItems from 'utils/sorter';
-import Loading from 'components/loading';
+import InfoBlock from './components/infoBlock';
+import './styles.scss';
 
 interface Props {}
 

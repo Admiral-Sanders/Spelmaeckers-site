@@ -1,7 +1,7 @@
 import SectionWrapper from 'components/sectionWrapper';
 import Carousel, { Image } from 'react-gallery-carousel';
-import './styles.scss';
 import 'react-gallery-carousel/dist/index.css';
+import './styles.scss';
 
 interface Props {
   title: string;

@@ -1,6 +1,6 @@
 import { FacebookOutlined } from '@ant-design/icons';
-import { Col } from 'antd';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import { Col } from 'antd';
 import { Maybe, Member } from 'graphql/schema';
 import { Link } from 'react-router-dom';
 import './styles.scss';

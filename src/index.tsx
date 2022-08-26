@@ -1,11 +1,11 @@
-import ReactDOM from 'react-dom';
-import './index.scss';
 import { ApolloClient, ApolloProvider, createHttpLink, InMemoryCache } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
-import reportWebVitals from './reportWebVitals';
-import App from './app';
 import i18n from 'i18next';
+import ReactDOM from 'react-dom';
 import { initReactI18next } from 'react-i18next';
+import App from './app';
+import './index.scss';
+import reportWebVitals from './reportWebVitals';
 import Translations from './translations';
 
 i18n.use(initReactI18next).init({

@@ -1,9 +1,9 @@
 import {
-  QuestionCircleOutlined,
-  PushpinOutlined,
-  EuroCircleOutlined,
   DropboxOutlined,
+  EuroCircleOutlined,
   NotificationOutlined,
+  PushpinOutlined,
+  QuestionCircleOutlined,
 } from '@ant-design/icons';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { Col } from 'antd';

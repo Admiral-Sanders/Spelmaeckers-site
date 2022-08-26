@@ -1,10 +1,10 @@
 import { Col, Row } from 'antd';
-import Moment from 'react-moment';
-import SectionWrapper from 'components/sectionWrapper';
-import './styles.scss';
-import { Link } from 'react-router-dom';
-import { useGetEventsQuery } from 'graphql/schema';
 import Loading from 'components/loading';
+import SectionWrapper from 'components/sectionWrapper';
+import { useGetEventsQuery } from 'graphql/schema';
+import Moment from 'react-moment';
+import { Link } from 'react-router-dom';
+import './styles.scss';
 
 interface Props {
   currentDatetime: string;
