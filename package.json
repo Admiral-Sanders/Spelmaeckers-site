@@ -1,6 +1,7 @@
 {
   "name": "spelmaeckers-site",
   "version": "0.1.0",
+  "homepage": "https://admiral-sanders.github.io/Spelmaeckers-site/",
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
     "@apollo/client": "^3.4.16",
