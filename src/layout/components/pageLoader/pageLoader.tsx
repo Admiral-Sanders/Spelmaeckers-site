@@ -1,9 +1,7 @@
-import Loading from "components/loading";
-import "./styles.scss";
+import Loading from 'components/loading';
+import './styles.scss';
 
-interface Props {
-
-}
+interface Props {}
 
 const PageLoader: React.FC<Props> = () => {
   return (

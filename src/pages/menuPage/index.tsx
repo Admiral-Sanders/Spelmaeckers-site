@@ -1,11 +1,9 @@
-import Loading from "components/loading";
-import { useGetConsumptionsQuery } from "graphql/schema";
-import PageLoader from "layout/components/pageLoader/pageLoader";
-import "./styles.scss";
+import Loading from 'components/loading';
+import { useGetConsumptionsQuery } from 'graphql/schema';
+import PageLoader from 'layout/components/pageLoader/pageLoader';
+import './styles.scss';
 
-interface Props {
-
-}
+interface Props {}
 
 const MenuPage: React.FC<Props> = () => {
   const { data, error, loading } = useGetConsumptionsQuery();
@@ -14,11 +12,7 @@ const MenuPage: React.FC<Props> = () => {
     return <PageLoader />;
   }
 
-  return (
-    <div>
-      { JSON.stringify(data) }
-    </div>
-  );
+  return <div>{JSON.stringify(data)}</div>;
 };
 
 export default MenuPage;

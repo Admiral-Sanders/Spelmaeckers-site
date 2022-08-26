@@ -1,20 +1,18 @@
-import { DownCircleOutlined } from "@ant-design/icons";
-import { Affix } from "antd";
-import { Asset, useGetNewGamesQuery } from "graphql/schema";
-import AppFooter from "layout/components/footer/footer";
-import AppHeader from "layout/components/header/header";
-import PageLoader from "layout/components/pageLoader/pageLoader";
-import EventSection from "../../components/eventSection";
-import GallerySection from "../../components/gallerySection";
-import LinkSection from "../../components/linkSection";
-import MembersSection from "../../components/membersSection";
-import NumbersSection from "../../components/numbersSection";
-import PracticalSection from "../../components/practicalSection";
-import "./styles.scss";
+import { DownCircleOutlined } from '@ant-design/icons';
+import { Affix } from 'antd';
+import { Asset, useGetNewGamesQuery } from 'graphql/schema';
+import AppFooter from 'layout/components/footer/footer';
+import AppHeader from 'layout/components/header/header';
+import PageLoader from 'layout/components/pageLoader/pageLoader';
+import EventSection from '../../components/eventSection';
+import GallerySection from '../../components/gallerySection';
+import LinkSection from '../../components/linkSection';
+import MembersSection from '../../components/membersSection';
+import NumbersSection from '../../components/numbersSection';
+import PracticalSection from '../../components/practicalSection';
+import './styles.scss';
 
-interface Props {
-
-}
+interface Props {}
 
 const HomePage: React.FC<Props> = () => {
   const currentDate = new Date().toISOString();
@@ -24,16 +22,16 @@ const HomePage: React.FC<Props> = () => {
     return <PageLoader />;
   }
 
-  const getImages = (assets: Partial<Asset|null>[]): string[] => {
-    return assets.map(asset => asset?.url || "").filter(url => url.length);
-  }
+  const getImages = (assets: Partial<Asset | null>[]): string[] => {
+    return assets.map((asset) => asset?.url || '').filter((url) => url.length);
+  };
 
   return (
     <div>
       <div className="backdrop">
         <h1>De spelmaeckers</h1>
         <a href="#practical">
-          <DownCircleOutlined className="scrollIcon"/>
+          <DownCircleOutlined className="scrollIcon" />
         </a>
       </div>
 
@@ -52,9 +50,16 @@ const HomePage: React.FC<Props> = () => {
           <EventSection currentDatetime={currentDate}></EventSection>
         </div>
 
-        <GallerySection title="newGamesSection.title" images={getImages(data?.assetCollection?.items || [])}></GallerySection>
+        <GallerySection
+          title="newGamesSection.title"
+          images={getImages(data?.assetCollection?.items || [])}
+        ></GallerySection>
 
-        <LinkSection backgroundImage="https://despelmaeckers.be/images/link.png" link="http://eepurl.com/dts8Q5" text="linkSection.newsletter"></LinkSection>
+        <LinkSection
+          backgroundImage="https://despelmaeckers.be/images/link.png"
+          link="http://eepurl.com/dts8Q5"
+          text="linkSection.newsletter"
+        ></LinkSection>
 
         <div className="grayBackground">
           <MembersSection></MembersSection>

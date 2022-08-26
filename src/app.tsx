@@ -1,8 +1,6 @@
-import "./app.scss";
-import {
-  HashRouter
-} from "react-router-dom";
-import AppLayout from "./layout";
+import './app.scss';
+import { HashRouter } from 'react-router-dom';
+import AppLayout from './layout';
 
 function App() {
   return (

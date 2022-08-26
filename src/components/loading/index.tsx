@@ -1,13 +1,18 @@
-import "./styles.scss";
+import './styles.scss';
 
 interface Props {
-  showText?: boolean
+  showText?: boolean;
 }
 
 const Loading: React.FC<Props> = ({ showText = true }) => {
   return (
     <div className="loader">
-      <div className="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+      <div className="lds-ellipsis">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
 
       <p>Loading</p>
     </div>

@@ -4,7 +4,7 @@ export type Maybe<T> = T | null;
 export type Exact<T> = any; // extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
 export type MakeOptional<T> = any; //, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: Maybe<T[SubKey]> };
 export type MakeMaybe<T> = any; //, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Maybe<T[SubKey]> };
-const defaultOptions =  {}
+const defaultOptions = {};
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
   ID: string;
@@ -45,55 +45,46 @@ export type Asset = {
   width?: Maybe<Scalars['Int']>;
 };
 
-
 /** Represents a binary file in a space. An asset can be any file type. */
 export type AssetContentTypeArgs = {
   locale?: Maybe<Scalars['String']>;
 };
-
 
 /** Represents a binary file in a space. An asset can be any file type. */
 export type AssetDescriptionArgs = {
   locale?: Maybe<Scalars['String']>;
 };
 
-
 /** Represents a binary file in a space. An asset can be any file type. */
 export type AssetFileNameArgs = {
   locale?: Maybe<Scalars['String']>;
 };
-
 
 /** Represents a binary file in a space. An asset can be any file type. */
 export type AssetHeightArgs = {
   locale?: Maybe<Scalars['String']>;
 };
 
-
 /** Represents a binary file in a space. An asset can be any file type. */
 export type AssetLinkedFromArgs = {
   allowedLocales?: Maybe<Array<Maybe<Scalars['String']>>>;
 };
-
 
 /** Represents a binary file in a space. An asset can be any file type. */
 export type AssetSizeArgs = {
   locale?: Maybe<Scalars['String']>;
 };
 
-
 /** Represents a binary file in a space. An asset can be any file type. */
 export type AssetTitleArgs = {
   locale?: Maybe<Scalars['String']>;
 };
-
 
 /** Represents a binary file in a space. An asset can be any file type. */
 export type AssetUrlArgs = {
   locale?: Maybe<Scalars['String']>;
   transform?: Maybe<ImageTransformOptions>;
 };
-
 
 /** Represents a binary file in a space. An asset can be any file type. */
 export type AssetWidthArgs = {
@@ -184,7 +175,6 @@ export type AssetLinkingCollections = {
   numberpriceCollection?: Maybe<NumberpriceCollection>;
 };
 
-
 export type AssetLinkingCollectionsEntryCollectionArgs = {
   limit?: Maybe<Scalars['Int']>;
   locale?: Maybe<Scalars['String']>;
@@ -192,14 +182,12 @@ export type AssetLinkingCollectionsEntryCollectionArgs = {
   skip?: Maybe<Scalars['Int']>;
 };
 
-
 export type AssetLinkingCollectionsMemberCollectionArgs = {
   limit?: Maybe<Scalars['Int']>;
   locale?: Maybe<Scalars['String']>;
   preview?: Maybe<Scalars['Boolean']>;
   skip?: Maybe<Scalars['Int']>;
 };
-
 
 export type AssetLinkingCollectionsNumberpriceCollectionArgs = {
   limit?: Maybe<Scalars['Int']>;
@@ -228,7 +216,7 @@ export enum AssetOrder {
   UrlAsc = 'url_ASC',
   UrlDesc = 'url_DESC',
   WidthAsc = 'width_ASC',
-  WidthDesc = 'width_DESC'
+  WidthDesc = 'width_DESC',
 }
 
 /** A thing they can order from the bar [See type definition](https://app.contentful.com/spaces/6cgdkv8ktvf8/content_types/consumption) */
@@ -242,24 +230,20 @@ export type Consumption = Entry & {
   ticketAmount?: Maybe<Scalars['Int']>;
 };
 
-
 /** A thing they can order from the bar [See type definition](https://app.contentful.com/spaces/6cgdkv8ktvf8/content_types/consumption) */
 export type ConsumptionCategoryArgs = {
   locale?: Maybe<Scalars['String']>;
 };
-
 
 /** A thing they can order from the bar [See type definition](https://app.contentful.com/spaces/6cgdkv8ktvf8/content_types/consumption) */
 export type ConsumptionLinkedFromArgs = {
   allowedLocales?: Maybe<Array<Maybe<Scalars['String']>>>;
 };
 
-
 /** A thing they can order from the bar [See type definition](https://app.contentful.com/spaces/6cgdkv8ktvf8/content_types/consumption) */
 export type ConsumptionNameArgs = {
   locale?: Maybe<Scalars['String']>;
 };
-
 
 /** A thing they can order from the bar [See type definition](https://app.contentful.com/spaces/6cgdkv8ktvf8/content_types/consumption) */
 export type ConsumptionTicketAmountArgs = {
@@ -309,7 +293,6 @@ export type ConsumptionLinkingCollections = {
   entryCollection?: Maybe<EntryCollection>;
 };
 
-
 export type ConsumptionLinkingCollectionsEntryCollectionArgs = {
   limit?: Maybe<Scalars['Int']>;
   locale?: Maybe<Scalars['String']>;
@@ -331,7 +314,7 @@ export enum ConsumptionOrder {
   SysPublishedVersionAsc = 'sys_publishedVersion_ASC',
   SysPublishedVersionDesc = 'sys_publishedVersion_DESC',
   TicketAmountAsc = 'ticketAmount_ASC',
-  TicketAmountDesc = 'ticketAmount_DESC'
+  TicketAmountDesc = 'ticketAmount_DESC',
 }
 
 export type ContentfulMetadata = {
@@ -388,7 +371,7 @@ export enum EntryOrder {
   SysPublishedAtAsc = 'sys_publishedAt_ASC',
   SysPublishedAtDesc = 'sys_publishedAt_DESC',
   SysPublishedVersionAsc = 'sys_publishedVersion_ASC',
-  SysPublishedVersionDesc = 'sys_publishedVersion_DESC'
+  SysPublishedVersionDesc = 'sys_publishedVersion_DESC',
 }
 
 /** [See type definition](https://app.contentful.com/spaces/6cgdkv8ktvf8/content_types/event) */
@@ -403,30 +386,25 @@ export type Event = Entry & {
   to?: Maybe<Scalars['DateTime']>;
 };
 
-
 /** [See type definition](https://app.contentful.com/spaces/6cgdkv8ktvf8/content_types/event) */
 export type EventFromArgs = {
   locale?: Maybe<Scalars['String']>;
 };
-
 
 /** [See type definition](https://app.contentful.com/spaces/6cgdkv8ktvf8/content_types/event) */
 export type EventLinkArgs = {
   locale?: Maybe<Scalars['String']>;
 };
 
-
 /** [See type definition](https://app.contentful.com/spaces/6cgdkv8ktvf8/content_types/event) */
 export type EventLinkedFromArgs = {
   allowedLocales?: Maybe<Array<Maybe<Scalars['String']>>>;
 };
 
-
 /** [See type definition](https://app.contentful.com/spaces/6cgdkv8ktvf8/content_types/event) */
 export type EventTitleArgs = {
   locale?: Maybe<Scalars['String']>;
 };
-
 
 /** [See type definition](https://app.contentful.com/spaces/6cgdkv8ktvf8/content_types/event) */
 export type EventToArgs = {
@@ -485,7 +463,6 @@ export type EventLinkingCollections = {
   entryCollection?: Maybe<EntryCollection>;
 };
 
-
 export type EventLinkingCollectionsEntryCollectionArgs = {
   limit?: Maybe<Scalars['Int']>;
   locale?: Maybe<Scalars['String']>;
@@ -509,7 +486,7 @@ export enum EventOrder {
   TitleAsc = 'title_ASC',
   TitleDesc = 'title_DESC',
   ToAsc = 'to_ASC',
-  ToDesc = 'to_DESC'
+  ToDesc = 'to_DESC',
 }
 
 /** One of the focus numbers on the homepage [See type definition](https://app.contentful.com/spaces/6cgdkv8ktvf8/content_types/focusnumber) */
@@ -523,24 +500,20 @@ export type Focusnumber = Entry & {
   title?: Maybe<Scalars['String']>;
 };
 
-
 /** One of the focus numbers on the homepage [See type definition](https://app.contentful.com/spaces/6cgdkv8ktvf8/content_types/focusnumber) */
 export type FocusnumberLinkedFromArgs = {
   allowedLocales?: Maybe<Array<Maybe<Scalars['String']>>>;
 };
-
 
 /** One of the focus numbers on the homepage [See type definition](https://app.contentful.com/spaces/6cgdkv8ktvf8/content_types/focusnumber) */
 export type FocusnumberNumberArgs = {
   locale?: Maybe<Scalars['String']>;
 };
 
-
 /** One of the focus numbers on the homepage [See type definition](https://app.contentful.com/spaces/6cgdkv8ktvf8/content_types/focusnumber) */
 export type FocusnumberOrderArgs = {
   locale?: Maybe<Scalars['String']>;
 };
-
 
 /** One of the focus numbers on the homepage [See type definition](https://app.contentful.com/spaces/6cgdkv8ktvf8/content_types/focusnumber) */
 export type FocusnumberTitleArgs = {
@@ -592,7 +565,6 @@ export type FocusnumberLinkingCollections = {
   entryCollection?: Maybe<EntryCollection>;
 };
 
-
 export type FocusnumberLinkingCollectionsEntryCollectionArgs = {
   limit?: Maybe<Scalars['Int']>;
   locale?: Maybe<Scalars['String']>;
@@ -614,7 +586,7 @@ export enum FocusnumberOrder {
   SysPublishedVersionAsc = 'sys_publishedVersion_ASC',
   SysPublishedVersionDesc = 'sys_publishedVersion_DESC',
   TitleAsc = 'title_ASC',
-  TitleDesc = 'title_DESC'
+  TitleDesc = 'title_DESC',
 }
 
 export enum ImageFormat {
@@ -636,7 +608,7 @@ export enum ImageFormat {
    */
   Png8 = 'PNG8',
   /** WebP image format. */
-  Webp = 'WEBP'
+  Webp = 'WEBP',
 }
 
 export enum ImageResizeFocus {
@@ -661,7 +633,7 @@ export enum ImageResizeFocus {
   /** Focus the resizing on the top left. */
   TopLeft = 'TOP_LEFT',
   /** Focus the resizing on the top right. */
-  TopRight = 'TOP_RIGHT'
+  TopRight = 'TOP_RIGHT',
 }
 
 export enum ImageResizeStrategy {
@@ -679,7 +651,7 @@ export enum ImageResizeStrategy {
   /** Resizes the image to the specified dimensions, changing the original aspect ratio if needed. */
   Scale = 'SCALE',
   /** Creates a thumbnail from the image. */
-  Thumb = 'THUMB'
+  Thumb = 'THUMB',
 }
 
 export type ImageTransformOptions = {
@@ -724,30 +696,25 @@ export type Member = Entry & {
   sys: Sys;
 };
 
-
 /** Spelmaecker member [See type definition](https://app.contentful.com/spaces/6cgdkv8ktvf8/content_types/member) */
 export type MemberDescriptionArgs = {
   locale?: Maybe<Scalars['String']>;
 };
-
 
 /** Spelmaecker member [See type definition](https://app.contentful.com/spaces/6cgdkv8ktvf8/content_types/member) */
 export type MemberFacebookLinkArgs = {
   locale?: Maybe<Scalars['String']>;
 };
 
-
 /** Spelmaecker member [See type definition](https://app.contentful.com/spaces/6cgdkv8ktvf8/content_types/member) */
 export type MemberLinkedFromArgs = {
   allowedLocales?: Maybe<Array<Maybe<Scalars['String']>>>;
 };
 
-
 /** Spelmaecker member [See type definition](https://app.contentful.com/spaces/6cgdkv8ktvf8/content_types/member) */
 export type MemberNameArgs = {
   locale?: Maybe<Scalars['String']>;
 };
-
 
 /** Spelmaecker member [See type definition](https://app.contentful.com/spaces/6cgdkv8ktvf8/content_types/member) */
 export type MemberProfilePictureArgs = {
@@ -818,7 +785,6 @@ export type MemberLinkingCollections = {
   entryCollection?: Maybe<EntryCollection>;
 };
 
-
 export type MemberLinkingCollectionsEntryCollectionArgs = {
   limit?: Maybe<Scalars['Int']>;
   locale?: Maybe<Scalars['String']>;
@@ -838,7 +804,7 @@ export enum MemberOrder {
   SysPublishedAtAsc = 'sys_publishedAt_ASC',
   SysPublishedAtDesc = 'sys_publishedAt_DESC',
   SysPublishedVersionAsc = 'sys_publishedVersion_ASC',
-  SysPublishedVersionDesc = 'sys_publishedVersion_DESC'
+  SysPublishedVersionDesc = 'sys_publishedVersion_DESC',
 }
 
 /** Prices for when the Spelmaeckers counter rises [See type definition](https://app.contentful.com/spaces/6cgdkv8ktvf8/content_types/numberprice) */
@@ -852,25 +818,21 @@ export type Numberprice = Entry & {
   title?: Maybe<Scalars['String']>;
 };
 
-
 /** Prices for when the Spelmaeckers counter rises [See type definition](https://app.contentful.com/spaces/6cgdkv8ktvf8/content_types/numberprice) */
 export type NumberpriceImageArgs = {
   locale?: Maybe<Scalars['String']>;
   preview?: Maybe<Scalars['Boolean']>;
 };
 
-
 /** Prices for when the Spelmaeckers counter rises [See type definition](https://app.contentful.com/spaces/6cgdkv8ktvf8/content_types/numberprice) */
 export type NumberpriceLinkedFromArgs = {
   allowedLocales?: Maybe<Array<Maybe<Scalars['String']>>>;
 };
 
-
 /** Prices for when the Spelmaeckers counter rises [See type definition](https://app.contentful.com/spaces/6cgdkv8ktvf8/content_types/numberprice) */
 export type NumberpriceNumberArgs = {
   locale?: Maybe<Scalars['String']>;
 };
-
 
 /** Prices for when the Spelmaeckers counter rises [See type definition](https://app.contentful.com/spaces/6cgdkv8ktvf8/content_types/numberprice) */
 export type NumberpriceTitleArgs = {
@@ -914,7 +876,6 @@ export type NumberpriceLinkingCollections = {
   entryCollection?: Maybe<EntryCollection>;
 };
 
-
 export type NumberpriceLinkingCollectionsEntryCollectionArgs = {
   limit?: Maybe<Scalars['Int']>;
   locale?: Maybe<Scalars['String']>;
@@ -934,7 +895,7 @@ export enum NumberpriceOrder {
   SysPublishedVersionAsc = 'sys_publishedVersion_ASC',
   SysPublishedVersionDesc = 'sys_publishedVersion_DESC',
   TitleAsc = 'title_ASC',
-  TitleDesc = 'title_DESC'
+  TitleDesc = 'title_DESC',
 }
 
 /** One of the main sections on the homepage [See type definition](https://app.contentful.com/spaces/6cgdkv8ktvf8/content_types/practicalItem) */
@@ -949,30 +910,25 @@ export type PracticalItem = Entry & {
   title?: Maybe<Scalars['String']>;
 };
 
-
 /** One of the main sections on the homepage [See type definition](https://app.contentful.com/spaces/6cgdkv8ktvf8/content_types/practicalItem) */
 export type PracticalItemDescriptionArgs = {
   locale?: Maybe<Scalars['String']>;
 };
-
 
 /** One of the main sections on the homepage [See type definition](https://app.contentful.com/spaces/6cgdkv8ktvf8/content_types/practicalItem) */
 export type PracticalItemIconArgs = {
   locale?: Maybe<Scalars['String']>;
 };
 
-
 /** One of the main sections on the homepage [See type definition](https://app.contentful.com/spaces/6cgdkv8ktvf8/content_types/practicalItem) */
 export type PracticalItemLinkedFromArgs = {
   allowedLocales?: Maybe<Array<Maybe<Scalars['String']>>>;
 };
 
-
 /** One of the main sections on the homepage [See type definition](https://app.contentful.com/spaces/6cgdkv8ktvf8/content_types/practicalItem) */
 export type PracticalItemOrderArgs = {
   locale?: Maybe<Scalars['String']>;
 };
-
 
 /** One of the main sections on the homepage [See type definition](https://app.contentful.com/spaces/6cgdkv8ktvf8/content_types/practicalItem) */
 export type PracticalItemTitleArgs = {
@@ -1050,7 +1006,6 @@ export type PracticalItemLinkingCollections = {
   entryCollection?: Maybe<EntryCollection>;
 };
 
-
 export type PracticalItemLinkingCollectionsEntryCollectionArgs = {
   limit?: Maybe<Scalars['Int']>;
   locale?: Maybe<Scalars['String']>;
@@ -1072,7 +1027,7 @@ export enum PracticalItemOrder {
   SysPublishedVersionAsc = 'sys_publishedVersion_ASC',
   SysPublishedVersionDesc = 'sys_publishedVersion_DESC',
   TitleAsc = 'title_ASC',
-  TitleDesc = 'title_DESC'
+  TitleDesc = 'title_DESC',
 }
 
 export type Query = {
@@ -1094,13 +1049,11 @@ export type Query = {
   practicalItemCollection?: Maybe<PracticalItemCollection>;
 };
 
-
 export type QueryAssetArgs = {
   id: Scalars['String'];
   locale?: Maybe<Scalars['String']>;
   preview?: Maybe<Scalars['Boolean']>;
 };
-
 
 export type QueryAssetCollectionArgs = {
   limit?: Maybe<Scalars['Int']>;
@@ -1111,13 +1064,11 @@ export type QueryAssetCollectionArgs = {
   where?: Maybe<AssetFilter>;
 };
 
-
 export type QueryConsumptionArgs = {
   id: Scalars['String'];
   locale?: Maybe<Scalars['String']>;
   preview?: Maybe<Scalars['Boolean']>;
 };
-
 
 export type QueryConsumptionCollectionArgs = {
   limit?: Maybe<Scalars['Int']>;
@@ -1128,7 +1079,6 @@ export type QueryConsumptionCollectionArgs = {
   where?: Maybe<ConsumptionFilter>;
 };
 
-
 export type QueryEntryCollectionArgs = {
   limit?: Maybe<Scalars['Int']>;
   locale?: Maybe<Scalars['String']>;
@@ -1138,13 +1088,11 @@ export type QueryEntryCollectionArgs = {
   where?: Maybe<EntryFilter>;
 };
 
-
 export type QueryEventArgs = {
   id: Scalars['String'];
   locale?: Maybe<Scalars['String']>;
   preview?: Maybe<Scalars['Boolean']>;
 };
-
 
 export type QueryEventCollectionArgs = {
   limit?: Maybe<Scalars['Int']>;
@@ -1155,13 +1103,11 @@ export type QueryEventCollectionArgs = {
   where?: Maybe<EventFilter>;
 };
 
-
 export type QueryFocusnumberArgs = {
   id: Scalars['String'];
   locale?: Maybe<Scalars['String']>;
   preview?: Maybe<Scalars['Boolean']>;
 };
-
 
 export type QueryFocusnumberCollectionArgs = {
   limit?: Maybe<Scalars['Int']>;
@@ -1172,13 +1118,11 @@ export type QueryFocusnumberCollectionArgs = {
   where?: Maybe<FocusnumberFilter>;
 };
 
-
 export type QueryMemberArgs = {
   id: Scalars['String'];
   locale?: Maybe<Scalars['String']>;
   preview?: Maybe<Scalars['Boolean']>;
 };
-
 
 export type QueryMemberCollectionArgs = {
   limit?: Maybe<Scalars['Int']>;
@@ -1189,13 +1133,11 @@ export type QueryMemberCollectionArgs = {
   where?: Maybe<MemberFilter>;
 };
 
-
 export type QueryNumberpriceArgs = {
   id: Scalars['String'];
   locale?: Maybe<Scalars['String']>;
   preview?: Maybe<Scalars['Boolean']>;
 };
-
 
 export type QueryNumberpriceCollectionArgs = {
   limit?: Maybe<Scalars['Int']>;
@@ -1206,13 +1148,11 @@ export type QueryNumberpriceCollectionArgs = {
   where?: Maybe<NumberpriceFilter>;
 };
 
-
 export type QueryPracticalItemArgs = {
   id: Scalars['String'];
   locale?: Maybe<Scalars['String']>;
   preview?: Maybe<Scalars['Boolean']>;
 };
-
 
 export type QueryPracticalItemCollectionArgs = {
   limit?: Maybe<Scalars['Int']>;
@@ -1270,58 +1210,130 @@ export type SysFilter = {
   publishedVersion_not_in?: Maybe<Array<Maybe<Scalars['Float']>>>;
 };
 
-export type GetConsumptionsQueryVariables = Exact<{ [key: string]: never; }>;
+export type GetConsumptionsQueryVariables = Exact<{ [key: string]: never }>;
 
-
-export type GetConsumptionsQuery = { __typename?: 'Query', consumptionCollection?: { __typename?: 'ConsumptionCollection', total: number, items: Array<{ __typename?: 'Consumption', name?: string | null, category?: string | null, ticketAmount?: number | null } | null> } | null };
+export type GetConsumptionsQuery = {
+  __typename?: 'Query';
+  consumptionCollection?: {
+    __typename?: 'ConsumptionCollection';
+    total: number;
+    items: Array<{
+      __typename?: 'Consumption';
+      name?: string | null;
+      category?: string | null;
+      ticketAmount?: number | null;
+    } | null>;
+  } | null;
+};
 
 export type GetEventsQueryVariables = Exact<{
   now: Scalars['DateTime'];
 }>;
 
+export type GetEventsQuery = {
+  __typename?: 'Query';
+  eventCollection?: {
+    __typename?: 'EventCollection';
+    total: number;
+    items: Array<{
+      __typename?: 'Event';
+      title?: string | null;
+      link?: string | null;
+      from?: any | null;
+      to?: any | null;
+    } | null>;
+  } | null;
+};
 
-export type GetEventsQuery = { __typename?: 'Query', eventCollection?: { __typename?: 'EventCollection', total: number, items: Array<{ __typename?: 'Event', title?: string | null, link?: string | null, from?: any | null, to?: any | null } | null> } | null };
+export type GetFocusNumbersQueryVariables = Exact<{ [key: string]: never }>;
 
-export type GetFocusNumbersQueryVariables = Exact<{ [key: string]: never; }>;
+export type GetFocusNumbersQuery = {
+  __typename?: 'Query';
+  focusnumberCollection?: {
+    __typename?: 'FocusnumberCollection';
+    total: number;
+    items: Array<{
+      __typename?: 'Focusnumber';
+      title?: string | null;
+      number?: number | null;
+      order?: number | null;
+    } | null>;
+  } | null;
+};
 
+export type GetMembersQueryVariables = Exact<{ [key: string]: never }>;
 
-export type GetFocusNumbersQuery = { __typename?: 'Query', focusnumberCollection?: { __typename?: 'FocusnumberCollection', total: number, items: Array<{ __typename?: 'Focusnumber', title?: string | null, number?: number | null, order?: number | null } | null> } | null };
+export type GetMembersQuery = {
+  __typename?: 'Query';
+  memberCollection?: {
+    __typename?: 'MemberCollection';
+    total: number;
+    items: Array<{
+      __typename?: 'Member';
+      name?: string | null;
+      facebookLink?: string | null;
+      description?: { __typename?: 'MemberDescription'; json: any } | null;
+      profilePicture?: { __typename?: 'Asset'; url?: string | null } | null;
+    } | null>;
+  } | null;
+};
 
-export type GetMembersQueryVariables = Exact<{ [key: string]: never; }>;
+export type GetNewGamesQueryVariables = Exact<{ [key: string]: never }>;
 
-
-export type GetMembersQuery = { __typename?: 'Query', memberCollection?: { __typename?: 'MemberCollection', total: number, items: Array<{ __typename?: 'Member', name?: string | null, facebookLink?: string | null, description?: { __typename?: 'MemberDescription', json: any } | null, profilePicture?: { __typename?: 'Asset', url?: string | null } | null } | null> } | null };
-
-export type GetNewGamesQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type GetNewGamesQuery = { __typename?: 'Query', assetCollection?: { __typename?: 'AssetCollection', items: Array<{ __typename?: 'Asset', title?: string | null, url?: string | null } | null> } | null };
+export type GetNewGamesQuery = {
+  __typename?: 'Query';
+  assetCollection?: {
+    __typename?: 'AssetCollection';
+    items: Array<{ __typename?: 'Asset'; title?: string | null; url?: string | null } | null>;
+  } | null;
+};
 
 export type GetNumberPricesQueryVariables = Exact<{
   currentCounter: Scalars['Int'];
 }>;
 
+export type GetNumberPricesQuery = {
+  __typename?: 'Query';
+  numberpriceCollection?: {
+    __typename?: 'NumberpriceCollection';
+    total: number;
+    items: Array<{
+      __typename?: 'Numberprice';
+      number?: number | null;
+      image?: { __typename?: 'Asset'; url?: string | null } | null;
+    } | null>;
+  } | null;
+};
 
-export type GetNumberPricesQuery = { __typename?: 'Query', numberpriceCollection?: { __typename?: 'NumberpriceCollection', total: number, items: Array<{ __typename?: 'Numberprice', number?: number | null, image?: { __typename?: 'Asset', url?: string | null } | null } | null> } | null };
+export type GetPracticalItemsQueryVariables = Exact<{ [key: string]: never }>;
 
-export type GetPracticalItemsQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type GetPracticalItemsQuery = { __typename?: 'Query', practicalItemCollection?: { __typename?: 'PracticalItemCollection', total: number, items: Array<{ __typename?: 'PracticalItem', title?: string | null, icon?: string | null, order?: number | null, description?: { __typename?: 'PracticalItemDescription', json: any } | null } | null> } | null };
-
+export type GetPracticalItemsQuery = {
+  __typename?: 'Query';
+  practicalItemCollection?: {
+    __typename?: 'PracticalItemCollection';
+    total: number;
+    items: Array<{
+      __typename?: 'PracticalItem';
+      title?: string | null;
+      icon?: string | null;
+      order?: number | null;
+      description?: { __typename?: 'PracticalItemDescription'; json: any } | null;
+    } | null>;
+  } | null;
+};
 
 export const GetConsumptionsDocument = gql`
-    query getConsumptions {
-  consumptionCollection {
-    total
-    items {
-      name
-      category
-      ticketAmount
+  query getConsumptions {
+    consumptionCollection {
+      total
+      items {
+        name
+        category
+        ticketAmount
+      }
     }
   }
-}
-    `;
+`;
 
 /**
  * __useGetConsumptionsQuery__
@@ -1338,34 +1350,34 @@ export const GetConsumptionsDocument = gql`
  *   },
  * });
  */
-export function useGetConsumptionsQuery(baseOptions?: Apollo.QueryHookOptions<GetConsumptionsQuery, GetConsumptionsQueryVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<GetConsumptionsQuery, GetConsumptionsQueryVariables>(GetConsumptionsDocument, options);
-      }
-export function useGetConsumptionsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetConsumptionsQuery, GetConsumptionsQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<GetConsumptionsQuery, GetConsumptionsQueryVariables>(GetConsumptionsDocument, options);
-        }
+export function useGetConsumptionsQuery(
+  baseOptions?: Apollo.QueryHookOptions<GetConsumptionsQuery, GetConsumptionsQueryVariables>,
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useQuery<GetConsumptionsQuery, GetConsumptionsQueryVariables>(GetConsumptionsDocument, options);
+}
+export function useGetConsumptionsLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<GetConsumptionsQuery, GetConsumptionsQueryVariables>,
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useLazyQuery<GetConsumptionsQuery, GetConsumptionsQueryVariables>(GetConsumptionsDocument, options);
+}
 export type GetConsumptionsQueryHookResult = ReturnType<typeof useGetConsumptionsQuery>;
 export type GetConsumptionsLazyQueryHookResult = ReturnType<typeof useGetConsumptionsLazyQuery>;
 export type GetConsumptionsQueryResult = Apollo.QueryResult<GetConsumptionsQuery, GetConsumptionsQueryVariables>;
 export const GetEventsDocument = gql`
-    query getEvents($now: DateTime!) {
-  eventCollection(
-    where: {OR: [{from_gte: $now}, {to_gte: $now}]}
-    limit: 3
-    order: from_ASC
-  ) {
-    total
-    items {
-      title
-      link
-      from
-      to
+  query getEvents($now: DateTime!) {
+    eventCollection(where: { OR: [{ from_gte: $now }, { to_gte: $now }] }, limit: 3, order: from_ASC) {
+      total
+      items {
+        title
+        link
+        from
+        to
+      }
     }
   }
-}
-    `;
+`;
 
 /**
  * __useGetEventsQuery__
@@ -1384,28 +1396,30 @@ export const GetEventsDocument = gql`
  * });
  */
 export function useGetEventsQuery(baseOptions: Apollo.QueryHookOptions<GetEventsQuery, GetEventsQueryVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<GetEventsQuery, GetEventsQueryVariables>(GetEventsDocument, options);
-      }
-export function useGetEventsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetEventsQuery, GetEventsQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<GetEventsQuery, GetEventsQueryVariables>(GetEventsDocument, options);
-        }
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useQuery<GetEventsQuery, GetEventsQueryVariables>(GetEventsDocument, options);
+}
+export function useGetEventsLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<GetEventsQuery, GetEventsQueryVariables>,
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useLazyQuery<GetEventsQuery, GetEventsQueryVariables>(GetEventsDocument, options);
+}
 export type GetEventsQueryHookResult = ReturnType<typeof useGetEventsQuery>;
 export type GetEventsLazyQueryHookResult = ReturnType<typeof useGetEventsLazyQuery>;
 export type GetEventsQueryResult = Apollo.QueryResult<GetEventsQuery, GetEventsQueryVariables>;
 export const GetFocusNumbersDocument = gql`
-    query getFocusNumbers {
-  focusnumberCollection {
-    total
-    items {
-      title
-      number
-      order
+  query getFocusNumbers {
+    focusnumberCollection {
+      total
+      items {
+        title
+        number
+        order
+      }
     }
   }
-}
-    `;
+`;
 
 /**
  * __useGetFocusNumbersQuery__
@@ -1422,34 +1436,38 @@ export const GetFocusNumbersDocument = gql`
  *   },
  * });
  */
-export function useGetFocusNumbersQuery(baseOptions?: Apollo.QueryHookOptions<GetFocusNumbersQuery, GetFocusNumbersQueryVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<GetFocusNumbersQuery, GetFocusNumbersQueryVariables>(GetFocusNumbersDocument, options);
-      }
-export function useGetFocusNumbersLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetFocusNumbersQuery, GetFocusNumbersQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<GetFocusNumbersQuery, GetFocusNumbersQueryVariables>(GetFocusNumbersDocument, options);
-        }
+export function useGetFocusNumbersQuery(
+  baseOptions?: Apollo.QueryHookOptions<GetFocusNumbersQuery, GetFocusNumbersQueryVariables>,
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useQuery<GetFocusNumbersQuery, GetFocusNumbersQueryVariables>(GetFocusNumbersDocument, options);
+}
+export function useGetFocusNumbersLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<GetFocusNumbersQuery, GetFocusNumbersQueryVariables>,
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useLazyQuery<GetFocusNumbersQuery, GetFocusNumbersQueryVariables>(GetFocusNumbersDocument, options);
+}
 export type GetFocusNumbersQueryHookResult = ReturnType<typeof useGetFocusNumbersQuery>;
 export type GetFocusNumbersLazyQueryHookResult = ReturnType<typeof useGetFocusNumbersLazyQuery>;
 export type GetFocusNumbersQueryResult = Apollo.QueryResult<GetFocusNumbersQuery, GetFocusNumbersQueryVariables>;
 export const GetMembersDocument = gql`
-    query getMembers {
-  memberCollection {
-    total
-    items {
-      name
-      description {
-        json
-      }
-      facebookLink
-      profilePicture {
-        url
+  query getMembers {
+    memberCollection {
+      total
+      items {
+        name
+        description {
+          json
+        }
+        facebookLink
+        profilePicture {
+          url
+        }
       }
     }
   }
-}
-    `;
+`;
 
 /**
  * __useGetMembersQuery__
@@ -1467,28 +1485,28 @@ export const GetMembersDocument = gql`
  * });
  */
 export function useGetMembersQuery(baseOptions?: Apollo.QueryHookOptions<GetMembersQuery, GetMembersQueryVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<GetMembersQuery, GetMembersQueryVariables>(GetMembersDocument, options);
-      }
-export function useGetMembersLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetMembersQuery, GetMembersQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<GetMembersQuery, GetMembersQueryVariables>(GetMembersDocument, options);
-        }
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useQuery<GetMembersQuery, GetMembersQueryVariables>(GetMembersDocument, options);
+}
+export function useGetMembersLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<GetMembersQuery, GetMembersQueryVariables>,
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useLazyQuery<GetMembersQuery, GetMembersQueryVariables>(GetMembersDocument, options);
+}
 export type GetMembersQueryHookResult = ReturnType<typeof useGetMembersQuery>;
 export type GetMembersLazyQueryHookResult = ReturnType<typeof useGetMembersLazyQuery>;
 export type GetMembersQueryResult = Apollo.QueryResult<GetMembersQuery, GetMembersQueryVariables>;
 export const GetNewGamesDocument = gql`
-    query getNewGames {
-  assetCollection(
-    where: {contentfulMetadata: {tags: {id_contains_all: ["newGame"]}}}
-  ) {
-    items {
-      title
-      url
+  query getNewGames {
+    assetCollection(where: { contentfulMetadata: { tags: { id_contains_all: ["newGame"] } } }) {
+      items {
+        title
+        url
+      }
     }
   }
-}
-    `;
+`;
 
 /**
  * __useGetNewGamesQuery__
@@ -1505,30 +1523,34 @@ export const GetNewGamesDocument = gql`
  *   },
  * });
  */
-export function useGetNewGamesQuery(baseOptions?: Apollo.QueryHookOptions<GetNewGamesQuery, GetNewGamesQueryVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<GetNewGamesQuery, GetNewGamesQueryVariables>(GetNewGamesDocument, options);
-      }
-export function useGetNewGamesLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetNewGamesQuery, GetNewGamesQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<GetNewGamesQuery, GetNewGamesQueryVariables>(GetNewGamesDocument, options);
-        }
+export function useGetNewGamesQuery(
+  baseOptions?: Apollo.QueryHookOptions<GetNewGamesQuery, GetNewGamesQueryVariables>,
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useQuery<GetNewGamesQuery, GetNewGamesQueryVariables>(GetNewGamesDocument, options);
+}
+export function useGetNewGamesLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<GetNewGamesQuery, GetNewGamesQueryVariables>,
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useLazyQuery<GetNewGamesQuery, GetNewGamesQueryVariables>(GetNewGamesDocument, options);
+}
 export type GetNewGamesQueryHookResult = ReturnType<typeof useGetNewGamesQuery>;
 export type GetNewGamesLazyQueryHookResult = ReturnType<typeof useGetNewGamesLazyQuery>;
 export type GetNewGamesQueryResult = Apollo.QueryResult<GetNewGamesQuery, GetNewGamesQueryVariables>;
 export const GetNumberPricesDocument = gql`
-    query getNumberPrices($currentCounter: Int!) {
-  numberpriceCollection(limit: 2, where: {number_gt: $currentCounter}) {
-    total
-    items {
-      number
-      image {
-        url
+  query getNumberPrices($currentCounter: Int!) {
+    numberpriceCollection(limit: 2, where: { number_gt: $currentCounter }) {
+      total
+      items {
+        number
+        image {
+          url
+        }
       }
     }
   }
-}
-    `;
+`;
 
 /**
  * __useGetNumberPricesQuery__
@@ -1546,32 +1568,36 @@ export const GetNumberPricesDocument = gql`
  *   },
  * });
  */
-export function useGetNumberPricesQuery(baseOptions: Apollo.QueryHookOptions<GetNumberPricesQuery, GetNumberPricesQueryVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<GetNumberPricesQuery, GetNumberPricesQueryVariables>(GetNumberPricesDocument, options);
-      }
-export function useGetNumberPricesLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetNumberPricesQuery, GetNumberPricesQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<GetNumberPricesQuery, GetNumberPricesQueryVariables>(GetNumberPricesDocument, options);
-        }
+export function useGetNumberPricesQuery(
+  baseOptions: Apollo.QueryHookOptions<GetNumberPricesQuery, GetNumberPricesQueryVariables>,
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useQuery<GetNumberPricesQuery, GetNumberPricesQueryVariables>(GetNumberPricesDocument, options);
+}
+export function useGetNumberPricesLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<GetNumberPricesQuery, GetNumberPricesQueryVariables>,
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useLazyQuery<GetNumberPricesQuery, GetNumberPricesQueryVariables>(GetNumberPricesDocument, options);
+}
 export type GetNumberPricesQueryHookResult = ReturnType<typeof useGetNumberPricesQuery>;
 export type GetNumberPricesLazyQueryHookResult = ReturnType<typeof useGetNumberPricesLazyQuery>;
 export type GetNumberPricesQueryResult = Apollo.QueryResult<GetNumberPricesQuery, GetNumberPricesQueryVariables>;
 export const GetPracticalItemsDocument = gql`
-    query getPracticalItems {
-  practicalItemCollection {
-    total
-    items {
-      title
-      description {
-        json
+  query getPracticalItems {
+    practicalItemCollection {
+      total
+      items {
+        title
+        description {
+          json
+        }
+        icon
+        order
       }
-      icon
-      order
     }
   }
-}
-    `;
+`;
 
 /**
  * __useGetPracticalItemsQuery__
@@ -1588,14 +1614,21 @@ export const GetPracticalItemsDocument = gql`
  *   },
  * });
  */
-export function useGetPracticalItemsQuery(baseOptions?: Apollo.QueryHookOptions<GetPracticalItemsQuery, GetPracticalItemsQueryVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<GetPracticalItemsQuery, GetPracticalItemsQueryVariables>(GetPracticalItemsDocument, options);
-      }
-export function useGetPracticalItemsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetPracticalItemsQuery, GetPracticalItemsQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<GetPracticalItemsQuery, GetPracticalItemsQueryVariables>(GetPracticalItemsDocument, options);
-        }
+export function useGetPracticalItemsQuery(
+  baseOptions?: Apollo.QueryHookOptions<GetPracticalItemsQuery, GetPracticalItemsQueryVariables>,
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useQuery<GetPracticalItemsQuery, GetPracticalItemsQueryVariables>(GetPracticalItemsDocument, options);
+}
+export function useGetPracticalItemsLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<GetPracticalItemsQuery, GetPracticalItemsQueryVariables>,
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useLazyQuery<GetPracticalItemsQuery, GetPracticalItemsQueryVariables>(
+    GetPracticalItemsDocument,
+    options,
+  );
+}
 export type GetPracticalItemsQueryHookResult = ReturnType<typeof useGetPracticalItemsQuery>;
 export type GetPracticalItemsLazyQueryHookResult = ReturnType<typeof useGetPracticalItemsLazyQuery>;
 export type GetPracticalItemsQueryResult = Apollo.QueryResult<GetPracticalItemsQuery, GetPracticalItemsQueryVariables>;

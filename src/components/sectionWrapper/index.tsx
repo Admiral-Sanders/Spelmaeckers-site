@@ -1,6 +1,6 @@
-import { ReactElement } from "react";
-import { useTranslation } from "react-i18next";
-import "./styles.scss";
+import { ReactElement } from 'react';
+import { useTranslation } from 'react-i18next';
+import './styles.scss';
 
 interface Props {
   title: string;
@@ -12,9 +12,9 @@ const SectionWrapper: React.FC<Props> = ({ title, children }) => {
 
   return (
     <section className="sectionWrapper container">
-    <h1 className="sectionTitle">{ t(title) }</h1>
+      <h1 className="sectionTitle">{t(title)}</h1>
 
-      { children }
+      {children}
     </section>
   );
 };

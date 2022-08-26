@@ -1,4 +1,4 @@
-import { gql } from "@apollo/client";
+import { gql } from '@apollo/client';
 
 export const QUERY_GET_NUMBER_PRICES = gql`
   query getNumberPrices($currentCounter: Int!) {

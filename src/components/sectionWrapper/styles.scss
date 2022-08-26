@@ -1,4 +1,4 @@
-@import "../../styles/colors.scss";
+@import '../../styles/colors.scss';
 
 .sectionWrapper {
   padding: 60px 0;
@@ -23,7 +23,7 @@
     position: absolute;
     left: calc(50% - 35px);
     width: 70px;
-    content: "";
+    content: '';
     border-bottom: 6px double var(--color-primary);
     bottom: -10px;
   }
