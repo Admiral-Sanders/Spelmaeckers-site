@@ -1,7 +1,7 @@
 import HomePage from 'pages/homePage';
 import MenuPage from 'pages/menuPage';
 import * as React from 'react';
-import { Redirect, Route, Switch, useLocation } from 'react-router-dom';
+import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
 import AppFooter from './components/footer/footer';
 import AppHeader from './components/header/header';
 import './styles.scss';
@@ -16,17 +16,11 @@ const AppLayout: React.FC<Props> = () => {
     <>
       {!isHomePage && <AppHeader />}
 
-      <Switch>
-        <Route path="/" exact={true}>
-          <HomePage />
-        </Route>
-        <Route path="/menu">
-          <MenuPage />
-        </Route>
-        <Route path="/">
-          <Redirect to="/" />
-        </Route>
-      </Switch>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/menu" element={<MenuPage />} />
+        <Route path="*" element={<Navigate replace to="/" />} />
+      </Routes>
 
       {!isHomePage && <AppFooter />}
     </>
