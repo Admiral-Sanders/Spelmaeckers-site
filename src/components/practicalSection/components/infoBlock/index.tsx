@@ -11,9 +11,10 @@ import React from 'react';
 import './styles.scss';
 
 interface Props {
-  icon: any;
+  icon: string;
   title: string;
-  description: any;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  description: { json: any };
 }
 
 const InfoBlock: React.FC<Props> = ({ icon, title, description }) => {

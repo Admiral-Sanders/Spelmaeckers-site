@@ -1,9 +1,9 @@
-import { ReactElement } from 'react';
 import { useTranslation } from 'react-i18next';
 import './styles.scss';
 
 interface Props {
   title: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   children: any;
 }
 

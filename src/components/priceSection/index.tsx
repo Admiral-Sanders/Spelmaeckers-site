@@ -1,11 +1,10 @@
-import { isTSEntityName } from '@babel/types';
 import { Col, Row } from 'antd';
 import Loading from 'components/loading';
 import { useGetNumberPricesQuery } from 'graphql/schema';
 import './styles.scss';
 
 interface Props {
-  currentCounter: Number;
+  currentCounter: number;
 }
 
 const PriceSection: React.FC<Props> = ({ currentCounter }) => {
@@ -14,6 +13,8 @@ const PriceSection: React.FC<Props> = ({ currentCounter }) => {
       currentCounter: currentCounter,
     },
   });
+
+  console.log(error); // TODO Use error handler
 
   if (loading) {
     return <Loading />;

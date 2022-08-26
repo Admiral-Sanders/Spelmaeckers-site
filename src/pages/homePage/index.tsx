@@ -18,6 +18,7 @@ const HomePage: React.FC<Props> = () => {
   const currentDate = new Date().toISOString();
   const { data, error, loading } = useGetNewGamesQuery();
 
+  console.log(error); // TODO Use error handler
   if (loading) {
     return <PageLoader />;
   }

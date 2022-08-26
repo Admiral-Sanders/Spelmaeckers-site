@@ -1,0 +1,16 @@
+# dependencies
+/node_modules
+
+# testing
+/coverage
+
+# eslint
+.eslintrc.cjs
+
+# production
+/build
+
+# misc
+.DS_Store
+src/reportWebVitals.ts
+src/graphql/schema.tsx

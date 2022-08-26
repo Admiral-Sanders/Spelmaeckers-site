@@ -2,7 +2,7 @@ import { Col, Row } from 'antd';
 import Loading from 'components/loading';
 import PriceSection from 'components/priceSection';
 import SectionWrapper from 'components/sectionWrapper';
-import { Focusnumber, Maybe, useGetFocusNumbersQuery } from 'graphql/schema';
+import { Focusnumber, useGetFocusNumbersQuery } from 'graphql/schema';
 import sortItems from 'utils/sorter';
 import './styles.scss';
 
@@ -10,6 +10,8 @@ interface Props {}
 
 const NumbersSection: React.FC<Props> = () => {
   const { data, error, loading } = useGetFocusNumbersQuery();
+
+  console.log(error); // TODO Use error handler
 
   if (loading) {
     return <Loading />;
@@ -24,7 +26,7 @@ const NumbersSection: React.FC<Props> = () => {
     );
   };
 
-  const getCurrentCounter = (items: any[]): Number => {
+  const getCurrentCounter = (items: Focusnumber[]): number => {
     return items.find((item) => item.title === 'Spelmaeckers')?.number || 10000000;
   };
 
@@ -34,7 +36,9 @@ const NumbersSection: React.FC<Props> = () => {
         {sortItems(data?.focusnumberCollection?.items || []).map((number) => renderNumberBlock(number))}
       </Row>
 
-      <PriceSection currentCounter={getCurrentCounter(data?.focusnumberCollection?.items || [])}></PriceSection>
+      <PriceSection
+        currentCounter={getCurrentCounter((data?.focusnumberCollection?.items as Focusnumber[]) || [])}
+      ></PriceSection>
     </SectionWrapper>
   );
 };

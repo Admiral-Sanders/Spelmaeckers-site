@@ -11,6 +11,8 @@ interface Props {}
 const PracticalSection: React.FC<Props> = () => {
   const { data, error, loading } = useGetPracticalItemsQuery();
 
+  console.log(error); // TODO Use error handler
+
   if (loading) {
     return <Loading />;
   }

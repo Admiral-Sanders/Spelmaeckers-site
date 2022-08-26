@@ -1,9 +1,9 @@
 import * as Apollo from '@apollo/client';
 import { gql } from '@apollo/client';
 export type Maybe<T> = T | null;
-export type Exact<T> = any; // extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
-export type MakeOptional<T> = any; //, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: Maybe<T[SubKey]> };
-export type MakeMaybe<T> = any; //, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Maybe<T[SubKey]> };
+export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
+export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: Maybe<T[SubKey]> };
+export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Maybe<T[SubKey]> };
 const defaultOptions = {};
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {

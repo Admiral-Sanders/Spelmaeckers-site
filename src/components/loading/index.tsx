@@ -14,7 +14,7 @@ const Loading: React.FC<Props> = ({ showText = true }) => {
         <div></div>
       </div>
 
-      <p>Loading</p>
+      {showText && <p>Loading</p>}
     </div>
   );
 };

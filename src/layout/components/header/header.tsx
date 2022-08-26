@@ -1,4 +1,3 @@
-import { Menu } from 'antd';
 import { Header } from 'antd/lib/layout/layout';
 import './styles.scss';
 
