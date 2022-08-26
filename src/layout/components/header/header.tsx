@@ -1,10 +1,7 @@
-import { Menu } from "antd";
-import { Header } from "antd/lib/layout/layout";
-import "./styles.scss";
+import { Header } from 'antd/lib/layout/layout';
+import './styles.scss';
 
-interface Props {
-
-}
+interface Props {}
 
 const AppHeader: React.FC<Props> = () => {
   return (

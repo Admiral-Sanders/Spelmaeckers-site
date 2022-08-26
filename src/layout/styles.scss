@@ -1,4 +1,4 @@
-@import "../styles/colors.scss";
+@import '../styles/colors.scss';
 
 .rootSection {
   min-height: 100vh;
@@ -7,7 +7,7 @@
 
 .sideBar {
   background-color: white;
-  box-shadow: 5px 0 15px -5px rgba(115,115,115,0.75);
+  box-shadow: 5px 0 15px -5px rgba(115, 115, 115, 0.75);
   z-index: 1;
 
   &__row {

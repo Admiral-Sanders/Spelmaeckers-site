@@ -1,15 +1,13 @@
-import "./app.scss";
-import {
-  BrowserRouter as Router
-} from "react-router-dom";
-import AppLayoutContainer from "./layout";
+import { HashRouter } from 'react-router-dom';
+import './app.scss';
+import AppLayout from './layout';
 
-function App() {
+const App: React.FC = () => {
   return (
-    <Router>
-      <AppLayoutContainer></AppLayoutContainer>
-    </Router>
+    <HashRouter>
+      <AppLayout></AppLayout>
+    </HashRouter>
   );
-}
+};
 
 export default App;

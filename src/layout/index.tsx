@@ -1,11 +1,30 @@
-import AppLayout from "./appLayout";
+import HomePage from 'pages/homePage';
+import MenuPage from 'pages/menuPage';
+import * as React from 'react';
+import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
+import AppFooter from './components/footer/footer';
+import AppHeader from './components/header/header';
+import './styles.scss';
 
-interface Props {
+interface Props {}
 
-}
+const AppLayout: React.FC<Props> = () => {
+  const location = useLocation();
+  const [isHomePage] = React.useState(location.pathname === '/');
 
-const AppLayoutContainer: React.FC<Props> = () => {
-  return <AppLayout />;
+  return (
+    <>
+      {!isHomePage && <AppHeader />}
+
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/menu" element={<MenuPage />} />
+        <Route path="*" element={<Navigate replace to="/" />} />
+      </Routes>
+
+      {!isHomePage && <AppFooter />}
+    </>
+  );
 };
 
-export default AppLayoutContainer;
+export default AppLayout;

@@ -1,4 +1,4 @@
-import { nl } from "./nl";
+import { nl } from './nl';
 
 const Translations = {
   nl: {

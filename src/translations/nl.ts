@@ -1,23 +1,23 @@
 export const nl = {
   practicalSection: {
-    title: "Praktisch"
+    title: 'Praktisch',
   },
   numbersSection: {
-    title: "Enkele weetjes over ons"
+    title: 'Enkele weetjes over ons',
   },
   eventSection: {
-    title: "Toekomstige evenementen"
+    title: 'Toekomstige evenementen',
   },
   newGamesSection: {
-    title: "Nieuwe spellen"
+    title: 'Nieuwe spellen',
   },
   linkSection: {
-    newsletter: "Inschrijven op nieuwsbrief"
+    newsletter: 'Inschrijven op nieuwsbrief',
   },
   membersSection: {
-    title: "Wie zijn we?"
+    title: 'Wie zijn we?',
   },
   footer: {
-    mainText: "Copyright © 2022 - De Spelmaeckers",
-  }
+    mainText: 'Copyright © 2022 - De Spelmaeckers',
+  },
 };

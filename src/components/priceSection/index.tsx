@@ -1,32 +1,37 @@
-import { isTSEntityName } from "@babel/types";
-import { Col, Row } from "antd";
-import { useGetNumberPricesQuery } from "graphql/schema";
-import "./styles.scss";
+import { Col, Row } from 'antd';
+import Loading from 'components/loading';
+import { useGetNumberPricesQuery } from 'graphql/schema';
+import './styles.scss';
 
 interface Props {
-  currentCounter: Number;
+  currentCounter: number;
 }
 
 const PriceSection: React.FC<Props> = ({ currentCounter }) => {
   const { data, error, loading } = useGetNumberPricesQuery({
     variables: {
-      currentCounter: currentCounter
-    }
+      currentCounter: currentCounter,
+    },
   });
 
+  console.log(error); // TODO Use error handler
+
   if (loading) {
-    return <p>Loading</p>; //TODO FIX LOADING
+    return <Loading />;
   }
 
   return (
     <div className="priceSection">
-      <p>Elke honderdste bezoeker krijgt van ons een gloednieuw spel cadeau. Ontdek snel wat de volgende spellen zijn en wie weet neem jij ze de volgende keer wel mee naar huis!</p>
+      <p>
+        Elke honderdste bezoeker krijgt van ons een gloednieuw spel cadeau. Ontdek snel wat de volgende spellen zijn en
+        wie weet neem jij ze de volgende keer wel mee naar huis!
+      </p>
 
       <Row justify="center">
         {data?.numberpriceCollection?.items?.map((item, i) => (
           <Col sm={20} md={6} key={i}>
-            <img src={item?.image?.url || ""} alt="" />
-            <h1>{item?.number || ""}</h1>
+            <img src={item?.image?.url || ''} alt="" />
+            <h1>{item?.number || ''}</h1>
           </Col>
         ))}
       </Row>

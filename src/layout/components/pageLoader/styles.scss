@@ -1,0 +1,10 @@
+@import '../../../styles/colors.scss';
+
+.pageLoader {
+  background-color: var(--color-secondary);
+  width: 100%;
+  height: calc(100vh - 70px);
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
