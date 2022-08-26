@@ -1,4 +1,5 @@
 import { Col, Row } from "antd";
+import Loading from "components/loading";
 import PriceSection from "components/priceSection";
 import SectionWrapper from "components/sectionWrapper";
 import { Focusnumber, Maybe, useGetFocusNumbersQuery } from "graphql/schema";
@@ -13,7 +14,7 @@ const NumbersSection: React.FC<Props> = () => {
   const { data, error, loading } = useGetFocusNumbersQuery();
 
   if (loading) {
-    return <p>Loading</p>; //TODO FIX LOADING
+    return <Loading />;
   }
 
   const renderNumberBlock = (item: Focusnumber) => {

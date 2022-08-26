@@ -1,14 +1,14 @@
 import "./app.scss";
 import {
-  BrowserRouter as Router
+  HashRouter
 } from "react-router-dom";
-import AppLayoutContainer from "./layout";
+import AppLayout from "./layout";
 
 function App() {
   return (
-    <Router>
-      <AppLayoutContainer></AppLayoutContainer>
-    </Router>
+    <HashRouter>
+      <AppLayout></AppLayout>
+    </HashRouter>
   );
 }
 

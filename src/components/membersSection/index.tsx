@@ -1,4 +1,5 @@
 import { Row } from "antd";
+import Loading from "components/loading";
 import SectionWrapper from "components/sectionWrapper";
 import { useGetMembersQuery } from "graphql/schema";
 import MemberBlock from "./components/memberBlock";
@@ -12,7 +13,7 @@ const MembersSection: React.FC<Props> = () => {
   const { data, error, loading } = useGetMembersQuery();
 
   if (loading) {
-    return <p>Loading</p>; //TODO FIX LOADING
+    return <Loading />;
   }
 
   return (

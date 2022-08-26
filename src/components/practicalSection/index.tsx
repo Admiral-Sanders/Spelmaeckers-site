@@ -4,6 +4,7 @@ import InfoBlock from "./components/infoBlock";
 import "./styles.scss";
 import { useGetPracticalItemsQuery } from "graphql/schema";
 import sortItems from "utils/sorter";
+import Loading from "components/loading";
 
 interface Props {
 
@@ -13,7 +14,7 @@ const PracticalSection: React.FC<Props> = () => {
   const { data, error, loading } = useGetPracticalItemsQuery();
 
   if (loading) {
-    return <p>Loading</p>; //TODO FIX LOADING
+    return <Loading />;
   }
 
   return (

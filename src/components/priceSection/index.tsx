@@ -1,5 +1,6 @@
 import { isTSEntityName } from "@babel/types";
 import { Col, Row } from "antd";
+import Loading from "components/loading";
 import { useGetNumberPricesQuery } from "graphql/schema";
 import "./styles.scss";
 
@@ -15,7 +16,7 @@ const PriceSection: React.FC<Props> = ({ currentCounter }) => {
   });
 
   if (loading) {
-    return <p>Loading</p>; //TODO FIX LOADING
+    return <Loading />;
   }
 
   return (

@@ -4,6 +4,7 @@ import SectionWrapper from "components/sectionWrapper";
 import "./styles.scss";
 import { Link } from "react-router-dom";
 import { useGetEventsQuery } from "graphql/schema";
+import Loading from "components/loading";
 
 interface Props {
   currentDatetime: string;
@@ -15,7 +16,7 @@ const EventSection: React.FC<Props> = ({ currentDatetime }) => {
   });
 
   if (loading) {
-    return <p>Loading</p>; //TODO FIX LOADING
+    return <Loading />;
   }
 
   const renderEvent = (event: any) => {

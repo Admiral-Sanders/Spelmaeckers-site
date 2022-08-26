@@ -231,6 +231,109 @@ export enum AssetOrder {
   WidthDesc = 'width_DESC'
 }
 
+/** A thing they can order from the bar [See type definition](https://app.contentful.com/spaces/6cgdkv8ktvf8/content_types/consumption) */
+export type Consumption = Entry & {
+  __typename?: 'Consumption';
+  category?: Maybe<Scalars['String']>;
+  contentfulMetadata: ContentfulMetadata;
+  linkedFrom?: Maybe<ConsumptionLinkingCollections>;
+  name?: Maybe<Scalars['String']>;
+  sys: Sys;
+  ticketAmount?: Maybe<Scalars['Int']>;
+};
+
+
+/** A thing they can order from the bar [See type definition](https://app.contentful.com/spaces/6cgdkv8ktvf8/content_types/consumption) */
+export type ConsumptionCategoryArgs = {
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** A thing they can order from the bar [See type definition](https://app.contentful.com/spaces/6cgdkv8ktvf8/content_types/consumption) */
+export type ConsumptionLinkedFromArgs = {
+  allowedLocales?: Maybe<Array<Maybe<Scalars['String']>>>;
+};
+
+
+/** A thing they can order from the bar [See type definition](https://app.contentful.com/spaces/6cgdkv8ktvf8/content_types/consumption) */
+export type ConsumptionNameArgs = {
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+/** A thing they can order from the bar [See type definition](https://app.contentful.com/spaces/6cgdkv8ktvf8/content_types/consumption) */
+export type ConsumptionTicketAmountArgs = {
+  locale?: Maybe<Scalars['String']>;
+};
+
+export type ConsumptionCollection = {
+  __typename?: 'ConsumptionCollection';
+  items: Array<Maybe<Consumption>>;
+  limit: Scalars['Int'];
+  skip: Scalars['Int'];
+  total: Scalars['Int'];
+};
+
+export type ConsumptionFilter = {
+  AND?: Maybe<Array<Maybe<ConsumptionFilter>>>;
+  OR?: Maybe<Array<Maybe<ConsumptionFilter>>>;
+  category?: Maybe<Scalars['String']>;
+  category_contains?: Maybe<Scalars['String']>;
+  category_exists?: Maybe<Scalars['Boolean']>;
+  category_in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  category_not?: Maybe<Scalars['String']>;
+  category_not_contains?: Maybe<Scalars['String']>;
+  category_not_in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  contentfulMetadata?: Maybe<ContentfulMetadataFilter>;
+  name?: Maybe<Scalars['String']>;
+  name_contains?: Maybe<Scalars['String']>;
+  name_exists?: Maybe<Scalars['Boolean']>;
+  name_in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  name_not?: Maybe<Scalars['String']>;
+  name_not_contains?: Maybe<Scalars['String']>;
+  name_not_in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  sys?: Maybe<SysFilter>;
+  ticketAmount?: Maybe<Scalars['Int']>;
+  ticketAmount_exists?: Maybe<Scalars['Boolean']>;
+  ticketAmount_gt?: Maybe<Scalars['Int']>;
+  ticketAmount_gte?: Maybe<Scalars['Int']>;
+  ticketAmount_in?: Maybe<Array<Maybe<Scalars['Int']>>>;
+  ticketAmount_lt?: Maybe<Scalars['Int']>;
+  ticketAmount_lte?: Maybe<Scalars['Int']>;
+  ticketAmount_not?: Maybe<Scalars['Int']>;
+  ticketAmount_not_in?: Maybe<Array<Maybe<Scalars['Int']>>>;
+};
+
+export type ConsumptionLinkingCollections = {
+  __typename?: 'ConsumptionLinkingCollections';
+  entryCollection?: Maybe<EntryCollection>;
+};
+
+
+export type ConsumptionLinkingCollectionsEntryCollectionArgs = {
+  limit?: Maybe<Scalars['Int']>;
+  locale?: Maybe<Scalars['String']>;
+  preview?: Maybe<Scalars['Boolean']>;
+  skip?: Maybe<Scalars['Int']>;
+};
+
+export enum ConsumptionOrder {
+  CategoryAsc = 'category_ASC',
+  CategoryDesc = 'category_DESC',
+  NameAsc = 'name_ASC',
+  NameDesc = 'name_DESC',
+  SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
+  SysFirstPublishedAtDesc = 'sys_firstPublishedAt_DESC',
+  SysIdAsc = 'sys_id_ASC',
+  SysIdDesc = 'sys_id_DESC',
+  SysPublishedAtAsc = 'sys_publishedAt_ASC',
+  SysPublishedAtDesc = 'sys_publishedAt_DESC',
+  SysPublishedVersionAsc = 'sys_publishedVersion_ASC',
+  SysPublishedVersionDesc = 'sys_publishedVersion_DESC',
+  TicketAmountAsc = 'ticketAmount_ASC',
+  TicketAmountDesc = 'ticketAmount_DESC'
+}
+
 export type ContentfulMetadata = {
   __typename?: 'ContentfulMetadata';
   tags: Array<Maybe<ContentfulTag>>;
@@ -976,6 +1079,8 @@ export type Query = {
   __typename?: 'Query';
   asset?: Maybe<Asset>;
   assetCollection?: Maybe<AssetCollection>;
+  consumption?: Maybe<Consumption>;
+  consumptionCollection?: Maybe<ConsumptionCollection>;
   entryCollection?: Maybe<EntryCollection>;
   event?: Maybe<Event>;
   eventCollection?: Maybe<EventCollection>;
@@ -1004,6 +1109,23 @@ export type QueryAssetCollectionArgs = {
   preview?: Maybe<Scalars['Boolean']>;
   skip?: Maybe<Scalars['Int']>;
   where?: Maybe<AssetFilter>;
+};
+
+
+export type QueryConsumptionArgs = {
+  id: Scalars['String'];
+  locale?: Maybe<Scalars['String']>;
+  preview?: Maybe<Scalars['Boolean']>;
+};
+
+
+export type QueryConsumptionCollectionArgs = {
+  limit?: Maybe<Scalars['Int']>;
+  locale?: Maybe<Scalars['String']>;
+  order?: Maybe<Array<Maybe<ConsumptionOrder>>>;
+  preview?: Maybe<Scalars['Boolean']>;
+  skip?: Maybe<Scalars['Int']>;
+  where?: Maybe<ConsumptionFilter>;
 };
 
 
@@ -1148,6 +1270,11 @@ export type SysFilter = {
   publishedVersion_not_in?: Maybe<Array<Maybe<Scalars['Float']>>>;
 };
 
+export type GetConsumptionsQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetConsumptionsQuery = { __typename?: 'Query', consumptionCollection?: { __typename?: 'ConsumptionCollection', total: number, items: Array<{ __typename?: 'Consumption', name?: string | null, category?: string | null, ticketAmount?: number | null } | null> } | null };
+
 export type GetEventsQueryVariables = Exact<{
   now: Scalars['DateTime'];
 }>;
@@ -1183,6 +1310,45 @@ export type GetPracticalItemsQueryVariables = Exact<{ [key: string]: never; }>;
 export type GetPracticalItemsQuery = { __typename?: 'Query', practicalItemCollection?: { __typename?: 'PracticalItemCollection', total: number, items: Array<{ __typename?: 'PracticalItem', title?: string | null, icon?: string | null, order?: number | null, description?: { __typename?: 'PracticalItemDescription', json: any } | null } | null> } | null };
 
 
+export const GetConsumptionsDocument = gql`
+    query getConsumptions {
+  consumptionCollection {
+    total
+    items {
+      name
+      category
+      ticketAmount
+    }
+  }
+}
+    `;
+
+/**
+ * __useGetConsumptionsQuery__
+ *
+ * To run a query within a React component, call `useGetConsumptionsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetConsumptionsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetConsumptionsQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useGetConsumptionsQuery(baseOptions?: Apollo.QueryHookOptions<GetConsumptionsQuery, GetConsumptionsQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GetConsumptionsQuery, GetConsumptionsQueryVariables>(GetConsumptionsDocument, options);
+      }
+export function useGetConsumptionsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetConsumptionsQuery, GetConsumptionsQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GetConsumptionsQuery, GetConsumptionsQueryVariables>(GetConsumptionsDocument, options);
+        }
+export type GetConsumptionsQueryHookResult = ReturnType<typeof useGetConsumptionsQuery>;
+export type GetConsumptionsLazyQueryHookResult = ReturnType<typeof useGetConsumptionsLazyQuery>;
+export type GetConsumptionsQueryResult = Apollo.QueryResult<GetConsumptionsQuery, GetConsumptionsQueryVariables>;
 export const GetEventsDocument = gql`
     query getEvents($now: DateTime!) {
   eventCollection(
