@@ -9,7 +9,7 @@ const AppFooter: React.FC<Props> = () => {
   const { t } = useTranslation();
 
   return (
-    <Footer className="no-print" style={{ textAlign: "center" }}>{t("footer.mainText")} - GH</Footer>
+    <Footer className="no-print" style={{ textAlign: "center" }}>{t("footer.mainText")}</Footer>
   );
 };
 

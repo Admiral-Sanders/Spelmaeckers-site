@@ -18,6 +18,6 @@ export const nl = {
     title: "Wie zijn we?"
   },
   footer: {
-    mainText: "Copyright © 2022 Sander Verkaemer",
+    mainText: "Copyright © 2022 - De Spelmaeckers",
   }
 };
