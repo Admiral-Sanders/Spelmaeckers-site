@@ -3,7 +3,6 @@ import { Affix } from 'antd';
 import { Asset, useGetNewGamesQuery } from 'graphql/schema';
 import AppFooter from 'layout/components/footer/footer';
 import AppHeader from 'layout/components/header/header';
-import PageLoader from 'layout/components/pageLoader/pageLoader';
 import EventSection from '../../components/eventSection';
 import GallerySection from '../../components/gallerySection';
 import LinkSection from '../../components/linkSection';
@@ -16,12 +15,9 @@ interface Props {}
 
 const HomePage: React.FC<Props> = () => {
   const currentDate = new Date().toISOString();
-  const { data, error, loading } = useGetNewGamesQuery();
+  const { data, error } = useGetNewGamesQuery();
 
   console.log(error); // TODO Use error handler
-  if (loading) {
-    return <PageLoader />;
-  }
 
   const getImages = (assets: Partial<Asset | null>[]): string[] => {
     return assets.map((asset) => asset?.url || '').filter((url) => url.length);

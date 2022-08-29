@@ -1,15 +1,17 @@
 import { useGetConsumptionsQuery } from 'graphql/schema';
 import PageLoader from 'layout/components/pageLoader/pageLoader';
+import { useSelector } from 'react-redux';
 import './styles.scss';
 
 interface Props {}
 
 const MenuPage: React.FC<Props> = () => {
-  const { data, error, loading } = useGetConsumptionsQuery();
+  const { data, error } = useGetConsumptionsQuery();
+  const requestCounter = useSelector((state: any) => state.graphql.requestCounter);
 
   console.log(error); // TODO Use error handler
 
-  if (loading) {
+  if (requestCounter > 0) {
     return <PageLoader />;
   }
 

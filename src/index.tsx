@@ -1,11 +1,14 @@
-import { ApolloClient, ApolloProvider, createHttpLink, InMemoryCache } from '@apollo/client';
+import { ApolloClient, ApolloProvider, createHttpLink, from, InMemoryCache } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
+import loadingLink from 'graphql/loadingLink';
 import i18n from 'i18next';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import { initReactI18next } from 'react-i18next';
+import { Provider } from 'react-redux';
 import App from './app';
 import './index.scss';
 import reportWebVitals from './reportWebVitals';
+import store from './store';
 import Translations from './translations';
 
 i18n.use(initReactI18next).init({
@@ -31,17 +34,18 @@ const authLink = setContext((_, { headers }) => {
 });
 
 const client = new ApolloClient({
-  link: authLink.concat(httpLink),
+  link: from([loadingLink, authLink.concat(httpLink)]),
   cache: new InMemoryCache(),
 });
 
-import { createRoot } from 'react-dom/client';
 const container = document.getElementById('root');
 const root = createRoot(container!); // createRoot(container!) if you use TypeScript
 root.render(
-  <ApolloProvider client={client}>
-    <App />
-  </ApolloProvider>,
+  <Provider store={store}>
+    <ApolloProvider client={client}>
+      <App />
+    </ApolloProvider>
+  </Provider>,
 );
 
 // If you want to start measuring performance in your app, pass a function
