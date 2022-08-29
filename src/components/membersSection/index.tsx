@@ -1,27 +1,21 @@
 import { Row } from 'antd';
 import Loading from 'components/loading';
 import SectionWrapper from 'components/sectionWrapper';
-import { Member, useGetMembersQuery } from 'graphql/schema';
+import { Member, MemberCollection } from 'graphql/schema';
 import MemberBlock from './components/memberBlock';
 import './styles.scss';
 
-interface Props {}
+interface Props {
+  memberCollection?: MemberCollection;
+}
 
-const MembersSection: React.FC<Props> = () => {
-  const { data, error, loading } = useGetMembersQuery();
-
-  console.log(error); // TODO Use error handler
-
-  if (loading) {
-    return <Loading />;
-  }
-
+const MembersSection: React.FC<Props> = ({ memberCollection }) => {
   return (
     <SectionWrapper title="membersSection.title">
       <Row justify="center" gutter={64}>
         {
-          data ? (
-            data.memberCollection?.items.map(
+          memberCollection ? (
+            memberCollection?.items.map(
               (member, i) => member && <MemberBlock key={i} member={member as Member}></MemberBlock>,
             )
           ) : (

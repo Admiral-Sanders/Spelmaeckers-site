@@ -1,26 +1,20 @@
 import { Row } from 'antd';
 import Loading from 'components/loading';
 import SectionWrapper from 'components/sectionWrapper';
-import { useGetPracticalItemsQuery } from 'graphql/schema';
+import { PracticalItemCollection } from 'graphql/schema';
 import sortItems from 'utils/sorter';
 import InfoBlock from './components/infoBlock';
 import './styles.scss';
 
-interface Props {}
+interface Props {
+  practicalItemCollection?: PracticalItemCollection;
+}
 
-const PracticalSection: React.FC<Props> = () => {
-  const { data, error, loading } = useGetPracticalItemsQuery();
-
-  console.log(error); // TODO Use error handler
-
-  if (loading) {
-    return <Loading />;
-  }
-
+const PracticalSection: React.FC<Props> = ({ practicalItemCollection }) => {
   return (
     <SectionWrapper title="practicalSection.title">
       <Row className="infoRow">
-        {sortItems(data?.practicalItemCollection?.items || []).map((item) => (
+        {sortItems(practicalItemCollection?.items || []).map((item) => (
           <InfoBlock
             key={item?.title}
             title={item?.title || ''}

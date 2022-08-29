@@ -2,21 +2,15 @@ import { Col, Row } from 'antd';
 import Loading from 'components/loading';
 import PriceSection from 'components/priceSection';
 import SectionWrapper from 'components/sectionWrapper';
-import { Focusnumber, useGetFocusNumbersQuery } from 'graphql/schema';
+import { Focusnumber, FocusnumberCollection, useGetFocusNumbersQuery } from 'graphql/schema';
 import sortItems from 'utils/sorter';
 import './styles.scss';
 
-interface Props {}
+interface Props {
+  focusnumberCollection?: FocusnumberCollection;
+}
 
-const NumbersSection: React.FC<Props> = () => {
-  const { data, error, loading } = useGetFocusNumbersQuery();
-
-  console.log(error); // TODO Use error handler
-
-  if (loading) {
-    return <Loading />;
-  }
-
+const NumbersSection: React.FC<Props> = ({ focusnumberCollection }) => {
   const renderNumberBlock = (item: Focusnumber) => {
     return (
       <Col key={item.title} sm={20} md={6} className="numberBlock">
@@ -33,11 +27,11 @@ const NumbersSection: React.FC<Props> = () => {
   return (
     <SectionWrapper title="numbersSection.title">
       <Row gutter={200} justify="center" className="numbersRow">
-        {sortItems(data?.focusnumberCollection?.items || []).map((number) => renderNumberBlock(number))}
+        {sortItems(focusnumberCollection?.items || []).map((number) => renderNumberBlock(number))}
       </Row>
 
       <PriceSection
-        currentCounter={getCurrentCounter((data?.focusnumberCollection?.items as Focusnumber[]) || [])}
+        currentCounter={getCurrentCounter((focusnumberCollection?.items as Focusnumber[]) || [])}
       ></PriceSection>
     </SectionWrapper>
   );

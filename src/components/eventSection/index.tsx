@@ -1,25 +1,16 @@
 import { Col, Row } from 'antd';
 import Loading from 'components/loading';
 import SectionWrapper from 'components/sectionWrapper';
-import { Event, useGetEventsQuery } from 'graphql/schema';
+import { Event, EventCollection, useGetEventsQuery } from 'graphql/schema';
 import Moment from 'react-moment';
 import { Link } from 'react-router-dom';
 import './styles.scss';
 
 interface Props {
-  currentDatetime: string;
+  eventCollection?: EventCollection;
 }
 
-const EventSection: React.FC<Props> = ({ currentDatetime }) => {
-  const { data, error, loading } = useGetEventsQuery({
-    variables: { now: currentDatetime },
-  });
-
-  console.log(error); // TODO Use error handler
-  if (loading) {
-    return <Loading />;
-  }
-
+const EventSection: React.FC<Props> = ({ eventCollection }) => {
   const renderEvent = (event: Event) => {
     return (
       <Col key={event.title} className="event">
@@ -38,7 +29,7 @@ const EventSection: React.FC<Props> = ({ currentDatetime }) => {
   return (
     <SectionWrapper title="eventSection.title">
       <Row justify="center" gutter={64}>
-        {data?.eventCollection?.items?.map((event) => renderEvent(event as Event))}
+        {eventCollection?.items?.map((event) => renderEvent(event as Event))}
       </Row>
     </SectionWrapper>
   );

@@ -8,13 +8,11 @@ interface Props {
 }
 
 const PriceSection: React.FC<Props> = ({ currentCounter }) => {
-  const { data, error, loading } = useGetNumberPricesQuery({
+  const { data, loading } = useGetNumberPricesQuery({
     variables: {
       currentCounter: currentCounter,
     },
   });
-
-  console.log(error); // TODO Use error handler
 
   if (loading) {
     return <Loading />;

@@ -1,21 +1,27 @@
-import { useGetConsumptionsQuery } from 'graphql/schema';
+import { ConsumptionCollection, useGetConsumptionsQuery } from 'graphql/schema';
 import PageLoader from 'layout/components/pageLoader/pageLoader';
 import { useSelector } from 'react-redux';
+import MenuPage from './menuPage';
 import './styles.scss';
 
 interface Props {}
 
-const MenuPage: React.FC<Props> = () => {
-  const { data, error } = useGetConsumptionsQuery();
+const MenuPageContainer: React.FC<Props> = () => {
   const requestCounter = useSelector((state: any) => state.graphql.requestCounter);
 
-  console.log(error); // TODO Use error handler
+  const { data: consumptionRequest } = useGetConsumptionsQuery();
 
   if (requestCounter > 0) {
     return <PageLoader />;
   }
 
-  return <div>{JSON.stringify(data)}</div>;
+  return (
+    <>
+      {consumptionRequest && (
+        <MenuPage consumptionCollection={consumptionRequest.consumptionCollection as ConsumptionCollection} />
+      )}
+    </>
+  );
 };
 
-export default MenuPage;
+export default MenuPageContainer;
