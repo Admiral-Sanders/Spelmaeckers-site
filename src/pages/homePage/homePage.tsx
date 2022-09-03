@@ -7,10 +7,10 @@ import {
   FocusnumberCollection,
   MemberCollection,
   PracticalItemCollection,
-  useGetNewGamesQuery,
 } from 'graphql/schema';
 import AppFooter from 'layout/components/footer/footer';
 import AppHeader from 'layout/components/header/header';
+import { HashLink } from 'react-router-hash-link';
 import EventSection from '../../components/eventSection';
 import GallerySection from '../../components/gallerySection';
 import LinkSection from '../../components/linkSection';
@@ -42,9 +42,9 @@ const HomePage: React.FC<Props> = ({
     <div>
       <div className="backdrop">
         <h1>De spelmaeckers</h1>
-        <a href="#practical">
+        <HashLink to="/#practical">
           <DownCircleOutlined className="scrollIcon" />
-        </a>
+        </HashLink>
       </div>
 
       <div className="content">

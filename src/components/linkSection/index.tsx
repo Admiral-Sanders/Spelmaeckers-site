@@ -13,9 +13,9 @@ const LinkSection: React.FC<Props> = ({ backgroundImage, text, link }) => {
 
   return (
     <section className="linkSection" style={{ backgroundImage: `url(${backgroundImage})`, height: '250px' }}>
-      <Link to={{ pathname: link }} target="_blank" className="call-to-action">
+      <a href={link} target="_blank" className="call-to-action">
         {t(text)}
-      </Link>
+      </a>
     </section>
   );
 };

@@ -16,9 +16,11 @@ const MemberBlock: React.FC<Props> = ({ member }) => {
       <h1 className="memberTitle">{member?.name}</h1>
       <div className="description">{documentToReactComponents(member?.description?.json)}</div>
 
-      <Link to={{ pathname: member?.facebookLink || '' }} target="_blank" className="fbLink">
-        <FacebookOutlined />
-      </Link>
+      {member?.facebookLink && (
+        <a href={member?.facebookLink} target="_blank" className="fbLink">
+          <FacebookOutlined />
+        </a>
+      )}
     </Col>
   );
 };
