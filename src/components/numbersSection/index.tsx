@@ -3,7 +3,7 @@ import Loading from 'components/loading';
 import PriceSection from 'components/priceSection';
 import SectionWrapper from 'components/sectionWrapper';
 import { Focusnumber, FocusnumberCollection, useGetFocusNumbersQuery } from 'graphql/schema';
-import sortItems from 'utils/sorter';
+import { orderSorter } from 'utils/sorter';
 import './styles.scss';
 
 interface Props {
@@ -27,7 +27,7 @@ const NumbersSection: React.FC<Props> = ({ focusnumberCollection }) => {
   return (
     <SectionWrapper title="numbersSection.title">
       <Row gutter={200} justify="center" className="numbersRow">
-        {sortItems(focusnumberCollection?.items || []).map((number) => renderNumberBlock(number))}
+        {orderSorter(focusnumberCollection?.items || []).map((number) => renderNumberBlock(number))}
       </Row>
 
       <PriceSection

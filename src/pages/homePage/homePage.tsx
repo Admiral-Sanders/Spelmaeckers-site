@@ -1,5 +1,7 @@
 import { DownCircleOutlined } from '@ant-design/icons';
-import { Affix } from 'antd';
+import { Affix, Row } from 'antd';
+import MemberBlock from 'components/memberBlock';
+import SectionWrapper from 'components/sectionWrapper';
 import {
   Asset,
   AssetCollection,
@@ -14,7 +16,6 @@ import { HashLink } from 'react-router-hash-link';
 import EventSection from '../../components/eventSection';
 import GallerySection from '../../components/gallerySection';
 import LinkSection from '../../components/linkSection';
-import MembersSection from '../../components/membersSection';
 import NumbersSection from '../../components/numbersSection';
 import PracticalSection from '../../components/practicalSection';
 import './styles.scss';
@@ -71,7 +72,13 @@ const HomePage: React.FC<Props> = ({
         ></LinkSection>
 
         <div className="grayBackground">
-          <MembersSection memberCollection={memberCollection}></MembersSection>
+          <SectionWrapper title="membersSection.title">
+            <Row justify="center" gutter={64}>
+              {memberCollection?.items.map(
+                (member, i) => member && <MemberBlock key={i} member={member}></MemberBlock>,
+              )}
+            </Row>
+          </SectionWrapper>
         </div>
 
         <AppFooter />

@@ -1,4 +1,6 @@
+import ConsumptionItem from 'components/consumptionItem';
 import { Consumption, ConsumptionCollection, useGetConsumptionsQuery } from 'graphql/schema';
+import { consumptionSorter } from 'utils/sorter';
 import './styles.scss';
 
 interface Props {
@@ -9,10 +11,6 @@ interface GroupedConsumption {
   category: string;
   consumptions: Consumption[];
 }
-
-const sorter = (a: Consumption, b: Consumption): number => {
-  return a.ticketAmount! - b.ticketAmount! !== 0 ? a.ticketAmount! - b.ticketAmount! : a.name! > b.name! ? 1 : -1;
-};
 
 const MenuPage: React.FC<Props> = ({ consumptionCollection }) => {
   const groupConsumptions = (consumptions: Consumption[]): GroupedConsumption[] => {
@@ -32,15 +30,12 @@ const MenuPage: React.FC<Props> = ({ consumptionCollection }) => {
   };
 
   const renderConsumptions = (consumptions: Consumption[]) => {
-    return consumptions.sort(sorter).map((consumption) => (
-      <div className="consumption" key={consumption.name}>
-        <span className="consumption_title">{consumption.name}</span>
-        <span className="consumption_ticket">{consumption.ticketAmount}</span>
-      </div>
-    ));
+    // MATTI Hier geven we 1 consumptie item door (kan aangevuld worden met extra info indien nodig)
+    return consumptions.sort(consumptionSorter).map((consumption) => <ConsumptionItem consumption={consumption} />);
   };
 
   return (
+    // MATTI Hier kan je de consumptie groepen aanpassen (eten of drank).
     <div className="menuPage">
       {groupConsumptions((consumptionCollection?.items as Consumption[]) || [])
         .sort((a, b) => (a.category > b.category ? 1 : -1))
