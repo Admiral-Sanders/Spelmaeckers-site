@@ -1,5 +1,6 @@
 import { ApolloClient, ApolloProvider, createHttpLink, from, InMemoryCache } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
+import errorLink from 'graphql/errorLink';
 import loadingLink from 'graphql/loadingLink';
 import i18n from 'i18next';
 import { createRoot } from 'react-dom/client';
@@ -34,7 +35,7 @@ const authLink = setContext((_, { headers }) => {
 });
 
 const client = new ApolloClient({
-  link: from([loadingLink, authLink.concat(httpLink)]),
+  link: from([loadingLink, errorLink, authLink.concat(httpLink)]),
   cache: new InMemoryCache(),
 });
 

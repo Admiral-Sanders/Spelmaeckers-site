@@ -8,13 +8,7 @@ import './styles.scss';
 interface Props {}
 
 const ConsumptionSection: React.FC<Props> = () => {
-  const { data, error, loading } = useGetConsumptionsQuery();
-
-  console.log(error); // TODO Use error handler
-
-  if (loading) {
-    return <Loading />;
-  }
+  const { data } = useGetConsumptionsQuery();
 
   return (
     <SectionWrapper title="consumptionSection.title">

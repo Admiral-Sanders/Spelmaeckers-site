@@ -2,19 +2,13 @@ import { Row } from 'antd';
 import ConsumptionBlock from 'components/consumptionSection/components/consumptionBlock';
 import SectionWrapper from 'components/sectionWrapper';
 import { Consumption, useGetConsumptionsQuery } from 'graphql/schema';
-import PageLoader from 'layout/components/pageLoader/pageLoader';
 import './styles.scss';
 
 interface Props {}
 
 const MenuPage: React.FC<Props> = () => {
-  const { data, error, loading } = useGetConsumptionsQuery();
+  const { data } = useGetConsumptionsQuery();
 
-  console.log(error); // TODO Use error handler
-
-  if (loading) {
-    return <PageLoader />;
-  }
   // console.log(data);
 
   // return <div>{JSON.stringify(data)}</div>;

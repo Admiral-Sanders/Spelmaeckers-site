@@ -1,4 +1,7 @@
 export const nl = {
+  error: {
+    somethingWentWrong: 'Oops! Something went wrong.',
+  },
   practicalSection: {
     title: 'Praktisch',
   },
