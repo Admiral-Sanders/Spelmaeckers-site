@@ -1,7 +1,8 @@
-import HomePage from 'pages/homePage';
-import MenuPage from 'pages/menuPage';
+import HomePageContainer from 'pages/homePage';
+import MenuPageContainer from 'pages/menuPage';
 import * as React from 'react';
 import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
+import ErrorWatcher from './components/errorWatcher/errorWatcher';
 import AppFooter from './components/footer/footer';
 import AppHeader from './components/header/header';
 import './styles.scss';
@@ -16,9 +17,11 @@ const AppLayout: React.FC<Props> = () => {
     <>
       {!isHomePage && <AppHeader />}
 
+      <ErrorWatcher />
+
       <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/menu" element={<MenuPage />} />
+        <Route path="/" element={<HomePageContainer />} />
+        <Route path="/menu" element={<MenuPageContainer />} />
         <Route path="*" element={<Navigate replace to="/" />} />
       </Routes>
 

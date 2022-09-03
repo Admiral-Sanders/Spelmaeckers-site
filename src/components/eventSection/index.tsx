@@ -1,36 +1,38 @@
 import { Col, Row } from 'antd';
 import Loading from 'components/loading';
 import SectionWrapper from 'components/sectionWrapper';
-import { Event, useGetEventsQuery } from 'graphql/schema';
+import { Event, EventCollection, useGetEventsQuery } from 'graphql/schema';
 import Moment from 'react-moment';
 import { Link } from 'react-router-dom';
+import ConditionalWrapper from 'utils/componentWrapper';
 import './styles.scss';
 
 interface Props {
-  currentDatetime: string;
+  eventCollection?: EventCollection;
 }
 
-const EventSection: React.FC<Props> = ({ currentDatetime }) => {
-  const { data, error, loading } = useGetEventsQuery({
-    variables: { now: currentDatetime },
-  });
-
-  console.log(error); // TODO Use error handler
-  if (loading) {
-    return <Loading />;
-  }
-
+const EventSection: React.FC<Props> = ({ eventCollection }) => {
   const renderEvent = (event: Event) => {
     return (
       <Col key={event.title} className="event">
-        <Link to={{ pathname: event.link || '' }} target="_blank">
-          <img style={{ maxWidth: 200 }} src="https://despelmaeckers.be/images/event-logo.png"></img>
-          <h1>{event.title}</h1>
-          <h2>
-            <Moment format="D MMMM @ HH:mm">{event.from}</Moment>{' '}
-            {event.to && <Moment format="- HH:mm">{event.to}</Moment>}
-          </h2>
-        </Link>
+        <ConditionalWrapper
+          condition={!!event.link}
+          wrapper={(children) => (
+            <a href={event.link || ''} target="_blank">
+              {children}
+            </a>
+          )}
+        >
+          <>
+            <img style={{ maxWidth: 200 }} src="https://despelmaeckers.be/images/event-logo.png"></img>
+            <h1>{event.title}</h1>
+            <h2>
+              <Moment format="D MMMM @ HH:mm">{event.from}</Moment>{' '}
+              {event.to && <Moment format="- HH:mm">{event.to}</Moment>}
+            </h2>
+          </>
+        </ConditionalWrapper>
+        <a href={event.link || ''} target="_blank"></a>
       </Col>
     );
   };
@@ -38,7 +40,7 @@ const EventSection: React.FC<Props> = ({ currentDatetime }) => {
   return (
     <SectionWrapper title="eventSection.title">
       <Row justify="center" gutter={64}>
-        {data?.eventCollection?.items?.map((event) => renderEvent(event as Event))}
+        {eventCollection?.items?.map((event) => renderEvent(event as Event))}
       </Row>
     </SectionWrapper>
   );
