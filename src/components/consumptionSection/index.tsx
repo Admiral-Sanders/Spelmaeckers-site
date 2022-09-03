@@ -1,26 +1,23 @@
 import { Row } from 'antd';
-import ConsumptionBlock from 'components/consumptionSection/components/consumptionBlock';
+import Loading from 'components/loading';
 import SectionWrapper from 'components/sectionWrapper';
 import { Consumption, useGetConsumptionsQuery } from 'graphql/schema';
-import PageLoader from 'layout/components/pageLoader/pageLoader';
+import ConsumptionBlock from './components/consumptionBlock';
 import './styles.scss';
 
 interface Props {}
 
-const MenuPage: React.FC<Props> = () => {
+const ConsumptionSection: React.FC<Props> = () => {
   const { data, error, loading } = useGetConsumptionsQuery();
 
   console.log(error); // TODO Use error handler
 
   if (loading) {
-    return <PageLoader />;
+    return <Loading />;
   }
-  // console.log(data);
-
-  // return <div>{JSON.stringify(data)}</div>;
 
   return (
-    <SectionWrapper title="">
+    <SectionWrapper title="consumptionSection.title">
       <Row justify="center" gutter={64}>
         {
           data ? (
@@ -37,4 +34,4 @@ const MenuPage: React.FC<Props> = () => {
   );
 };
 
-export default MenuPage;
+export default ConsumptionSection;
