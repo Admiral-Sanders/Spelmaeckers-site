@@ -42,7 +42,7 @@ const HomePage: React.FC<Props> = ({
   return (
     <div>
       <div className="backdrop">
-        <h1>De spelmaeckers</h1>
+        <h1>De Spelmaeckers</h1>
         <HashLink to="/#practical">
           <DownCircleOutlined className="scrollIcon" />
         </HashLink>
