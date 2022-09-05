@@ -8,7 +8,7 @@ const MenuPageContainer: React.FC<Props> = () => {
   const { data } = useGetConsumptionsQuery();
 
   return (
-    <div>
+    <div className="menuPage bg-shroomHaze">
       {data && data.consumptionCollection && (
         <MenuPage consumptionCollection={data.consumptionCollection as ConsumptionCollection}></MenuPage>
       )}

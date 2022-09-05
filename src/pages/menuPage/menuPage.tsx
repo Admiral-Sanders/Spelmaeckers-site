@@ -35,16 +35,17 @@ const MenuPage: React.FC<Props> = ({ consumptionCollection }) => {
   };
 
   return (
-    // MATTI Hier kan je de consumptie groepen aanpassen (eten of drank).
-    <div className="menuPage">
-      {groupConsumptions((consumptionCollection?.items as Consumption[]) || [])
-        .sort((a, b) => (a.category > b.category ? 1 : -1))
-        .map((consumptionGroup) => (
-          <div className="consumptionGroup" key={consumptionGroup.category}>
-            <h1 className="consumptionGroup_title">{consumptionGroup.category}</h1>
-            {renderConsumptions(consumptionGroup.consumptions)}
-          </div>
-        ))}
+    <div className="menuPage__container">
+      <div className="">
+        {groupConsumptions((consumptionCollection?.items as Consumption[]) || [])
+          .sort((a, b) => (a.category > b.category ? 1 : -1))
+          .map((consumptionGroup) => (
+            <div className="consumptionGroup" key={consumptionGroup.category}>
+              <h1 className="consumptionGroup_title">{consumptionGroup.category}</h1>
+              {renderConsumptions(consumptionGroup.consumptions)}
+            </div>
+          ))}
+      </div>
     </div>
   );
 };
