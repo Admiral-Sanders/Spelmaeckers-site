@@ -50,7 +50,7 @@ const HomePage: React.FC<Props> = ({
 
       <div className="content">
         <Affix offsetTop={0}>
-          <AppHeader />
+          <AppHeader title="" />
         </Affix>
 
         <div className="grayBackground" id="practical">

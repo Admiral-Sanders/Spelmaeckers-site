@@ -15,7 +15,12 @@ const AppLayout: React.FC<Props> = () => {
 
   return (
     <>
-      {!isHomePage && <AppHeader />}
+      {/* //INFO Sander -> ik wou het woord Prijslijst bij in die header, dus voorlopig op deze manier opgelost.
+    title wordt meegegeven aan appheader, als die string leeg is dan staat er gewoon "De Spelmaeckers", anders komt de string er bij.
+
+    als er ooit nog extra pagina's bijkomen is dit uiteraard niet de oplossing...
+    */}
+      {!isHomePage && <AppHeader title="Prijslijst" />}
 
       <ErrorWatcher />
 
