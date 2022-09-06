@@ -1,5 +1,7 @@
 import ConsumptionItem from 'components/consumptionItem';
 import { Consumption, ConsumptionCollection, useGetConsumptionsQuery } from 'graphql/schema';
+import { useTransition } from 'react';
+import { useTranslation } from 'react-i18next';
 import { consumptionSorter } from 'utils/sorter';
 import './styles.scss';
 
@@ -13,6 +15,7 @@ interface GroupedConsumption {
 }
 
 const MenuPage: React.FC<Props> = ({ consumptionCollection }) => {
+  const { t } = useTranslation();
   const groupConsumptions = (consumptions: Consumption[]): GroupedConsumption[] => {
     return consumptions.reduce((prev: GroupedConsumption[], curr: Consumption) => {
       const i = prev.findIndex((v) => v.category === curr.category);
@@ -30,7 +33,6 @@ const MenuPage: React.FC<Props> = ({ consumptionCollection }) => {
   };
 
   const renderConsumptions = (consumptions: Consumption[]) => {
-    // MATTI Hier geven we 1 consumptie item door (kan aangevuld worden met extra info indien nodig)
     return consumptions.sort(consumptionSorter).map((consumption) => <ConsumptionItem consumption={consumption} />);
   };
 
@@ -41,7 +43,9 @@ const MenuPage: React.FC<Props> = ({ consumptionCollection }) => {
           .sort((a, b) => (a.category > b.category ? 1 : -1))
           .map((consumptionGroup) => (
             <div className="consumptionGroup" key={consumptionGroup.category}>
-              <h1 className="consumptionGroup_title">{consumptionGroup.category}</h1>
+              <h1 className="consumptionGroup_title">
+                {t(`consumptionCategory.${consumptionGroup.category.toLowerCase()}`)}
+              </h1>
               {renderConsumptions(consumptionGroup.consumptions)}
             </div>
           ))}

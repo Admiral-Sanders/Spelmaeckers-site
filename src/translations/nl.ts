@@ -23,4 +23,11 @@ export const nl = {
   footer: {
     mainText: 'Copyright © 2022 - De Spelmaeckers',
   },
+  header: {
+    menuPage: 'Prijslijst',
+  },
+  consumptionCategory: {
+    drink: 'Om te drinken',
+    snack: 'Om te eten',
+  },
 };
