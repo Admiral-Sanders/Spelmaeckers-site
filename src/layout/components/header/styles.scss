@@ -6,3 +6,13 @@
   font-size: 2em;
   font-weight: 900;
 }
+
+@media only screen and (max-width: 600px) {
+  .ant-layout-header {
+    font-size: 0.8em;
+    text-align: center;
+    height: auto !important;
+    line-height: 1.5;
+    padding: 1em !important;
+  }
+}
