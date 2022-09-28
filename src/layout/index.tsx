@@ -15,7 +15,7 @@ const AppLayout: React.FC<Props> = () => {
 
   return (
     <>
-      {!isHomePage && <AppHeader />}
+      {!isHomePage && <AppHeader title="header.menuPage" />}
 
       <ErrorWatcher />
 

@@ -1,0 +1,42 @@
+.menuPage {
+  width: 100%;
+  min-height: 85vh;
+  position: relative;
+
+  color: white;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  font-size: 20px;
+  &.bg-shroomHaze {
+    background: #5c258d; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, #4389a2, #5c258d); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(
+      to bottom,
+      #4389a2,
+      #5c258d
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    .consumptionGroup_title {
+      color: white;
+      font-weight: bold;
+      &.highlight {
+        background-color: white;
+        color: var(--color-secondary);
+      }
+    }
+  }
+
+  &__container {
+    width: auto;
+    display: block;
+    width: 100%;
+    max-width: 480px;
+
+    margin: 2em;
+    text-align: center;
+
+    .consumptionGroup {
+      margin-bottom: 2em;
+    }
+  }
+}
