@@ -52,12 +52,10 @@ const MenuPage: React.FC<Props> = ({ consumptionCollection }) => {
       </div>
       <div className="menuPage__info">
         <p>
-          Een drankkaart kost <b>12 euro</b>, vraag er gerust eentje aan de bar.
+          Een drankkaart kost <b>12 euro</b>.
           <br />
-          Bestellen kan - je raad het nooit - aan de bar. Dus als ge daar dan toch staat voor een kaart, kunt ge
-          evengoed wat vakjes laten doorstrepen hé.
+          Bestellen kan aan de bar.
         </p>
-        <p>Kaarten die worden aangekocht met andere drankkaarten zijn om ecologische redenen 17 euro duurder.</p>
         <img style={{ maxWidth: 200 }} src="https://despelmaeckers.be/images/event-logo.png"></img>
       </div>
     </div>
