@@ -11,6 +11,7 @@ import {
   useGetPracticalItemsQuery,
 } from 'graphql/schema';
 import PageLoader from 'layout/components/pageLoader/pageLoader';
+import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import HomePage from './homePage';
 import './styles.scss';
@@ -19,13 +20,13 @@ interface Props {}
 
 const HomePageContainer: React.FC<Props> = () => {
   const requestCounter = useSelector((state: any) => state.graphql.requestCounter);
+  const [currentDate] = useState<string>(new Date().toISOString());
 
-  // const currentDate = new Date().toISOString();
   const { data: newGamesRequest } = useGetNewGamesQuery();
   const { data: practicalItemsRequest } = useGetPracticalItemsQuery();
   const { data: focusnumberRequest } = useGetFocusNumbersQuery();
   const { data: eventRequest } = useGetEventsQuery({
-    variables: { now: '2022-08-29T20:59:18' }, // TODO Fix date
+    variables: { now: currentDate },
   });
   const { data: memberRequest } = useGetMembersQuery();
 
