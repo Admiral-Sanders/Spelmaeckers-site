@@ -1,4 +1,5 @@
 import HomePageContainer from 'pages/homePage';
+import MarathonPageContainer from 'pages/marathonPage';
 import MenuPageContainer from 'pages/menuPage';
 import * as React from 'react';
 import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
@@ -15,13 +16,12 @@ const AppLayout: React.FC<Props> = () => {
 
   return (
     <>
-      {!isHomePage && <AppHeader title="header.menuPage" />}
-
       <ErrorWatcher />
 
       <Routes>
         <Route path="/" element={<HomePageContainer />} />
         <Route path="/menu" element={<MenuPageContainer />} />
+        <Route path="/marathon" element={<MarathonPageContainer />} />
         <Route path="*" element={<Navigate replace to="/" />} />
       </Routes>
 

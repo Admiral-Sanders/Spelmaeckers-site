@@ -30,4 +30,10 @@ export const nl = {
     drink: 'Om te drinken',
     snack: 'Om te eten',
   },
+  marathonPage: {
+    title: 'Spellen marathon',
+    description:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum dolorem similique voluptas saepe tempore, voluptatibus suscipit molestias modi recusandae placeat, magni repellat quisquam porro ea nemo ducimus quaerat. Eos, labore.',
+    challengeTitle: 'Challenges',
+  },
 };
