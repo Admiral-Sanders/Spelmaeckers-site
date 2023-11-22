@@ -13,8 +13,8 @@ const MarathonPage: React.FC<Props> = ({ marathonChallengeCollection }) => {
   const renderChallenge = (item: MarathonChallenge | null) => {
     return (
       <div>
-        <p>{item?.title}</p>
-        <p>{item?.sponsorPrice}</p>
+        <span>{item?.title}</span>
+        <span>{item?.sponsorPrice}</span>
       </div>
     );
   };

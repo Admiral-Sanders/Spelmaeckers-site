@@ -36,4 +36,12 @@ export const nl = {
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum dolorem similique voluptas saepe tempore, voluptatibus suscipit molestias modi recusandae placeat, magni repellat quisquam porro ea nemo ducimus quaerat. Eos, labore.',
     challengeTitle: 'Challenges',
   },
+  marathon: {
+    notification: {
+      title: 'Spellen marathon',
+      description:
+        'Op zaterdag 23 maart doorkruisen de 3 Spelmaeckers terug het land. We proberen op 24u tijd zo veel mogelijk spelgerelateerde uitdagingen te vervullen. En dit alles voor het lokale Beverse goede doel, SoNoBeG.',
+      linkText: 'Lees meer',
+    },
+  },
 };
