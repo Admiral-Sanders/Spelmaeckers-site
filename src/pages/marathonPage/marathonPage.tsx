@@ -73,8 +73,8 @@ const MarathonPage: React.FC<Props> = ({ marathonChallengeCollection }) => {
             grenzen aan en dan is er echte armoede, echte honger, ...
           </p>
           <p>
-            Miscchien denk je, dit kan toch in Beveren. Weet je, mensen lopen daar niet mee te koop en gelukkige zijn
-            dit uitzonderingen. Maar ook bij ons zij er mensen die in de armoedecirkel terechtkomen. We kunnen voor hen
+            Miscchien denk je, dit kan toch in Beveren. Weet je, mensen lopen daar niet mee te koop en gelukkig zijn
+            dit uitzonderingen. Maar ook bij ons zijn er mensen die in de armoedecirkel terechtkomen. We kunnen voor hen
             geen grootse dingen doen, maar wel dat sprankeltje hoop en geloof geven, dat ze er niet alleen voorstaan:
           </p>
           <ul>
@@ -84,7 +84,7 @@ const MarathonPage: React.FC<Props> = ({ marathonChallengeCollection }) => {
               OCMW
             </li>
           </ul>
-          <p>We zij geen OCMW en bieden gus geen stucturele financiele tussenkomsten</p>
+          <p>We zijn geen OCMW en bieden dus geen stucturele financiële tussenkomsten</p>
           <h2>Kan ik SoNoBeg aanspreken?</h2>
           <p>
             Misschien heb je het op dit moment moeilijk om rond te komen of misschien ken je iemand die hulp kan
