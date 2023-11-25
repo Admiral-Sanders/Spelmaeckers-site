@@ -21,7 +21,7 @@ export const nl = {
     title: 'Wie zijn we?',
   },
   footer: {
-    mainText: 'Copyright © 2022 - De Spelmaeckers',
+    mainText: 'Copyright © {{year}} - De Spelmaeckers',
   },
   header: {
     menuPage: 'Prijslijst',
@@ -31,16 +31,17 @@ export const nl = {
     snack: 'Om te eten',
   },
   marathonPage: {
-    title: 'Spellen marathon',
+    title: 'Spelmaerathon',
     description:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum dolorem similique voluptas saepe tempore, voluptatibus suscipit molestias modi recusandae placeat, magni repellat quisquam porro ea nemo ducimus quaerat. Eos, labore.',
-    challengeTitle: 'Challenges',
+      'Het is even geleden, maar op zaterdag 23 maart 2024 doorkruisen de 3 Spelmaeckers terug het land. We proberen op 24u tijd zo veel mogelijk spelgerelateerde uitdagingen te vervullen. We maken gebruik van de gelegenheid om tot bij jullie te komen en dit alles voor het lokale Beverse goede doel, SoNoBeG.',
+    challengeTitle: 'Uitdagingen',
+    callToAction: 'Daag ons uit/Geef je op als speellocatie',
   },
   marathon: {
     notification: {
-      title: 'Spellen marathon',
+      title: 'Spelmaerathon',
       description:
-        'Op zaterdag 23 maart doorkruisen de 3 Spelmaeckers terug het land. We proberen op 24u tijd zo veel mogelijk spelgerelateerde uitdagingen te vervullen. En dit alles voor het lokale Beverse goede doel, SoNoBeG.',
+        'Op zaterdag 23 maart 2024 doorkruisen de 3 Spelmaeckers terug het land. We proberen op 24u tijd zo veel mogelijk spelgerelateerde uitdagingen te vervullen. En dit alles voor het lokale Beverse goede doel, SoNoBeG.',
       linkText: 'Lees meer',
     },
   },

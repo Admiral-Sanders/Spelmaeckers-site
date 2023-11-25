@@ -15,10 +15,20 @@ const AppLayout: React.FC<Props> = () => {
   const { t } = useTranslation();
   const location = useLocation();
   const [isHomePage] = React.useState(location.pathname === '/');
+  const [isMarathonPage] = React.useState(location.pathname.includes('marathon'));
 
   return (
     <>
       <ErrorWatcher />
+
+      {!isMarathonPage && (
+        <Notification
+          message={t('marathon.notification.title')}
+          description={t('marathon.notification.description')}
+          linkText={t('marathon.notification.linkText')}
+          linkUrl="marathon"
+        ></Notification>
+      )}
 
       <Routes>
         <Route path="/" element={<HomePageContainer />} />
@@ -28,13 +38,6 @@ const AppLayout: React.FC<Props> = () => {
       </Routes>
 
       {!isHomePage && <AppFooter />}
-
-      <Notification
-        message={t('marathon.notification.title')}
-        description={t('marathon.notification.description')}
-        linkText={t('marathon.notification.linkText')}
-        linkUrl="marathon"
-      ></Notification>
     </>
   );
 };

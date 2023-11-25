@@ -1,0 +1,21 @@
+.marathonPage {
+  p {
+    text-align: center;
+  }
+
+  .btn {
+    margin: 40px auto 0 auto;
+    display: block;
+    width: fit-content;
+  }
+
+  .challenge {
+    font-size: 20px;
+
+    &__row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+  }
+}

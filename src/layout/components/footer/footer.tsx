@@ -8,7 +8,7 @@ const AppFooter: React.FC<Props> = () => {
 
   return (
     <Footer className="no-print" style={{ textAlign: 'center' }}>
-      {t('footer.mainText')}
+      {t('footer.mainText', { year: new Date().getFullYear() })}
     </Footer>
   );
 };
