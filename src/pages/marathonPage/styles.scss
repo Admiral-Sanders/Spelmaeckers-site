@@ -1,5 +1,5 @@
 .marathonPage {
-  p {
+  .text-center {
     text-align: center;
   }
 
@@ -16,6 +16,10 @@
       display: flex;
       justify-content: space-between;
       margin-bottom: 10px;
+    }
+
+    &__price {
+      margin-left: 20px;
     }
   }
 }
