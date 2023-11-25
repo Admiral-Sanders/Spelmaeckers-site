@@ -11,14 +11,21 @@ import React from 'react';
 import './styles.scss';
 
 interface Props {
-  icon: string;
+  icon: string | JSX.Element;
   title: string;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  description: { json: any };
+  description?: { json: any };
+
+  sm?: number;
+  md?: number;
 }
 
-const InfoBlock: React.FC<Props> = ({ icon, title, description }) => {
-  const renderIcon = (icon: string) => {
+const InfoBlock: React.FC<Props> = ({ icon, title, description, sm = 20, md = 8 }) => {
+  const renderIcon = (icon: string | JSX.Element) => {
+    if (typeof icon !== 'string') {
+      return icon;
+    }
+
     switch (icon) {
       case 'QuestionCircleOutlined':
         return <QuestionCircleOutlined />;
@@ -34,12 +41,12 @@ const InfoBlock: React.FC<Props> = ({ icon, title, description }) => {
   };
 
   return (
-    <Col sm={20} md={8} className="infoBlock">
+    <Col sm={sm} md={md} className="infoBlock">
       <div className="iconContainer">{renderIcon(icon)}</div>
 
       <h1 className="title">{title}</h1>
 
-      <div className="description">{documentToReactComponents(description?.json)}</div>
+      {description && <div className="description">{documentToReactComponents(description?.json)}</div>}
     </Col>
   );
 };

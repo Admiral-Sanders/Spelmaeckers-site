@@ -13,7 +13,9 @@ const AppHeader: React.FC<Props> = ({ title }) => {
   return (
     <Header>
       <div className="header container">
-        <div className="logo">{headerText}</div>
+        <a href="/">
+          <div className="logo">{headerText}</div>
+        </a>
       </div>
     </Header>
   );
