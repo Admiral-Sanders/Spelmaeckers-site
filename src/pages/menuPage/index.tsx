@@ -10,15 +10,16 @@ const MenuPageContainer: React.FC<Props> = () => {
   const { data } = useGetConsumptionsQuery();
 
   return (
-    <div className="menuPage bg-shroomHaze">
+    <>
       <Affix>
         <AppHeader title="header.menuPage" />
       </Affix>
-
-      {data && data.consumptionCollection && (
-        <MenuPage consumptionCollection={data.consumptionCollection as ConsumptionCollection}></MenuPage>
-      )}
-    </div>
+      <div className="menuPage bg-shroomHaze">
+        {data && data.consumptionCollection && (
+          <MenuPage consumptionCollection={data.consumptionCollection as ConsumptionCollection}></MenuPage>
+        )}
+      </div>
+    </>
   );
 };
 
