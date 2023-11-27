@@ -1,5 +1,5 @@
 import { CodepenOutlined, HeartOutlined, HistoryOutlined, TeamOutlined } from '@ant-design/icons';
-import { Col, Row } from 'antd';
+import { Row } from 'antd';
 import InfoBlock from 'components/infoBlock';
 import SectionWrapper from 'components/sectionWrapper';
 import { MarathonChallenge, MarathonChallengeCollection } from 'graphql/schema';
@@ -63,46 +63,76 @@ const MarathonPage: React.FC<Props> = ({ marathonChallengeCollection }) => {
         </Row>
       </SectionWrapper>
 
-      <div className="grayBackground">
-        <SectionWrapper title="marathonPage.sonobegTitle">
-          <h2>Wie zijn we en wat doen we?</h2>
-          <p>
-            In alle stilte, proberen we al meer dan 18 jaar, mensen bij te staan en te helpen, die het in onze Beverse
-            gemeenschap moeilijk hebben om een plaats te krijgen of die door tegenslagen plots zwarte sneeuw zien.
-            Gelukkig zorgt onze welvaartsmaatschappij voor veel vangnetten, zodat mensen overleven. Maar daar zijn ook
-            grenzen aan en dan is er echte armoede, echte honger, ...
-          </p>
-          <p>
-            Miscchien denk je, dit kan toch in Beveren. Weet je, mensen lopen daar niet mee te koop en gelukkig zijn
-            dit uitzonderingen. Maar ook bij ons zijn er mensen die in de armoedecirkel terechtkomen. We kunnen voor hen
-            geen grootse dingen doen, maar wel dat sprankeltje hoop en geloof geven, dat ze er niet alleen voorstaan:
-          </p>
-          <ul>
-            <li>Door het aankopen van huishoudspullen om een gezin een minimum aan comfort te geven</li>
-            <li>
-              Door het geven van een pakket met fruit en groenten, koffie, olijfolie bovenop de voedselpakketten van het
-              OCMW
-            </li>
-          </ul>
-          <p>We zijn geen OCMW en bieden dus geen stucturele financiële tussenkomsten</p>
-          <h2>Kan ik SoNoBeg aanspreken?</h2>
-          <p>
-            Misschien heb je het op dit moment moeilijk om rond te komen of misschien ken je iemand die hulp kan
-            gebruiken. Neem dan gerust contact op met ons. We kunnen dan samen kijken of we iets kunnen doen. Discretie
-            gegarandeerd.
-          </p>
-          <ul>
-            <li>Rik Meersman: 056/70 16 11</li>
-            <li>Rony Deprez: 0497/51 11 02</li>
-          </ul>
-        </SectionWrapper>
-      </div>
-
       {marathonChallengeCollection.items.length && (
         <SectionWrapper title="marathonPage.challengeTitle">
           {marathonChallengeCollection.items.map(renderChallenge)}
         </SectionWrapper>
       )}
+
+      <div className="grayBackground">
+        <SectionWrapper title="marathonPage.sonobegTitle">
+          <div>
+            <h2>Wie zijn we en wat doen we?</h2>
+            <p>
+              In alle stilte, proberen we al bijna 20 jaar, mensen in Beveren-Leie bij te staan en te helpen, die het
+              moeilijk hebben om een plaats te krijgen of die door tegenslagen plots zwarte sneeuw zien. Gelukkig zorgt
+              onze welvaartsmaatschappij voor veel vangnetten, zodat mensen overleven. Maar daar zijn ook grenzen aan en
+              dan is er echte armoede, echte honger, …
+            </p>
+            <p>
+              Misschien denk je, dit kan toch niet in Beveren-Leie. Weet je, mensen lopen daar niet mee te koop en
+              gelukkig zijn dit uitzonderingen. Maar ook bij ons zijn er mensen die door tegenslagen in de armoedecirkel
+              terechtkomen. We kunnen voor hen geen grootse dingen doen, maar wel dat sprankeltje hoop en geloof geven,
+              dat ze er niet alleen voorstaan:
+            </p>
+            <ul>
+              <li>
+                door het betalen van een achterstallige schoolrekening of een bijdrage in een afrekening van de
+                energiefactuur (die hoger was dan het voorzien budget)
+              </li>
+              <li>
+                door het aankopen van wat huishoudspullen om een gezin een minimum aan comfort te geven (eind 2021
+                hebben we voor ieder gezin één of meerdere huishoudtoestellen kunnen aankopen zoals frigo, diepvries,
+                wasmachine, microgolfoven, …)
+              </li>
+              <li>
+                door het geven van een pakket met fruit en groenten, koffie, olijfolie bovenop de voedselpakketten van
+                het OCMW
+              </li>
+              <li>de enige wenskaart of geschenkje bezorgen bij hun verjaardag of eindejaar</li>
+            </ul>
+            <p>
+              Dit gebeurt allemaal anoniem. Als we info doorkrijgen van mensen die een steuntje kunnen gebruiken, dan
+              nemen we contact en enkel als de mensen zelf open staan voor onze hulp, komt er een vervolg. We zijn geen
+              OCMW en bieden dus geen structurele financiële tussenkomsten aan.
+            </p>
+            <p>
+              Wekelijks helpen we (samen met enkele extra vrijwilligers) voor de bedeling van voedselpakketten binnen
+              onze parochie. Mensen die onder de armoedegrens leven of die tijdelijke hulp nodig hebben kunnen aanspraak
+              maken op een gratis voedselpakket (mits het voorleggen van een voedselkaart). Deze pakketten moeten
+              normaal opgehaald worden in de sociale winkel in Waregem (’t Kelderke, dit is een vrijwilligersorganisatie
+              gesteund door de Waregemse Service Clubs), maar indien de betrokkenen niet in Waregem raken (ziek, werk)
+              dan bezorgen wij die thuis.
+            </p>
+          </div>
+
+          <div>
+            <h2>Hoe kan je naast de spelmaerathon SoNoBeg steunen?</h2>
+            <ul>
+              <li>Via een storting of lopende opdracht op onze rekening BE97 7380 1021 6849.</li>
+              <li>Door maaltijdcheques, waardebonnen, winkelcheques, cadeaubonnen, … te bezorgen</li>
+            </ul>
+            <p>Wees gerust, we hebben geen werkingskosten, alles wat we krijgen wordt goed besteed.</p>
+            <p>
+              Hartelijk dank aan allen die ons een warm hart toedragen, en neem gerust contact voor meer inlichtingen.
+            </p>
+            <ul>
+              <li>Rony & Marleen Deprez Ter Weerst 25 Beveren-Leie tel: 0497/51.11.02</li>
+              <li>Rik & Lea Meersman Akkerwindelaan 10 Beveren-Leie tel: 056/70.16.11</li>
+            </ul>
+          </div>
+        </SectionWrapper>
+      </div>
     </div>
   );
 };
