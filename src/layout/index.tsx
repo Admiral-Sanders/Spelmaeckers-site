@@ -21,19 +21,21 @@ const AppLayout: React.FC<Props> = () => {
     <>
       <ErrorWatcher />
 
-      {!isMarathonPage && (
-        <Notification
-          message={t('marathon.notification.title')}
-          description={t('marathon.notification.description')}
-          linkText={t('marathon.notification.linkText')}
-          linkUrl="spelmaerathon"
-        ></Notification>
-      )}
+      {/*
+        {!isMarathonPage && (
+          <Notification
+            message={t('marathon.notification.title')}
+            description={t('marathon.notification.description')}
+            linkText={t('marathon.notification.linkText')}
+            linkUrl="spelmaerathon"
+          ></Notification>
+        )} 
+      */}
 
       <Routes>
         <Route path="/" element={<HomePageContainer />} />
         <Route path="/menu" element={<MenuPageContainer />} />
-        <Route path="/spelmaerathon" element={<MarathonPageContainer />} />
+{/*         <Route path="/spelmaerathon" element={<MarathonPageContainer />} /> */}
         <Route path="*" element={<Navigate replace to="/" />} />
       </Routes>
 
