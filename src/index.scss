@@ -1,6 +1,8 @@
-@import '~antd/dist/antd.css';
-@import './styles/container.scss';
-@import './styles/colors.scss';
+@use 'sass:meta';
+@use 'styles/container.scss';
+
+@import 'antd/dist/antd.css';
+@include meta.load-css('styles/colors.scss');
 
 body {
   margin: 0;

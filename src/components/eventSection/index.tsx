@@ -1,9 +1,7 @@
 import { Col, Row } from 'antd';
-import Loading from 'components/loading';
 import SectionWrapper from 'components/sectionWrapper';
-import { Event, EventCollection, useGetEventsQuery } from 'graphql/schema';
-import Moment from 'react-moment';
-import { Link } from 'react-router-dom';
+import { Event, EventCollection } from 'graphql/schema';
+import dayjs from 'lib/dayjs';
 import ConditionalWrapper from 'utils/componentWrapper';
 import './styles.scss';
 
@@ -46,8 +44,8 @@ const EventSection: React.FC<Props> = ({ eventCollection }) => {
             <img style={{ maxWidth: 200 }} src="https://despelmaeckers.be/images/event-logo.png"></img>
             <h1>{event.title}</h1>
             <h2>
-              <Moment format="D MMMM @ HH:mm">{removeTimeZonePart(event.from)}</Moment>{' '}
-              {event.to && <Moment format="- HH:mm">{removeTimeZonePart(event.to)}</Moment>}
+              {dayjs(removeTimeZonePart(event.from)).format('D MMMM @ HH:mm')}{' '}
+              {event.to && dayjs(removeTimeZonePart(event.to)).format('- HH:mm')}
             </h2>
           </>
         </ConditionalWrapper>
